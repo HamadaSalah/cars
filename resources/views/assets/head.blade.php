@@ -17,9 +17,9 @@
         <li class="nav-item">
           <a class="nav-link" href="{{route('fawater')}}">الفواتير</a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a class="nav-link" href="#">الزمم</a>
-        </li>
+        </li> --}}
         <li class="nav-item">
           <a class="nav-link" href="{{route('cart')}}">السلة</a>
         </li>
