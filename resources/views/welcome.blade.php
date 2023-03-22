@@ -76,7 +76,7 @@
       <div class="container">
         <div class="carselectorss">
           <h2>اختر مواصفات السيارة التي تبحث عنها</h2>
-          <form>
+          <form class="carform">
             <div class="tab-content">
               <div class="tab-pane active" id="step1">
                 <div class="list-group">
@@ -98,16 +98,15 @@
               </div>
               <div class="tab-pane" id="step3">
                 <div class="list-group" id="CarModelss">
-                  <a href="#step4" class="list-group-item list-group-item-action" data-toggle="tab" data-modelss="hamada">hamada</a>
                    <!-- Add more car model options as needed -->
                 </div>
               </div>
               <div class="tab-pane" id="step4">
                 <h3>لقد اختارت ذلك الاختيارات</h3>
                 <ul>
-                  <li>السنة: <span id="selected-year"></span></li>
-                  <li>النوع: <span id="selected-make"></span></li>
-                  <li>الموديل: <span id="selected-model"></span></li>
+                  <li>السنة: <input name="year" id="selected-year" disabled/> </li>
+                  <li>النوع: <input name="carcat" id="selected-make" disabled> </li>
+                  <li>الموديل: <input name="carmodel" id="selected-model" disabled></span></li>
                 </ul>
                 <button type="submit" class="btn btn-primary">بحث</button>
               </div>
@@ -162,25 +161,25 @@ $(document).ready(function() {
     var $this = $(this);
     if ($this.data('year')) {
       carYear = $this.data('year');
-      $('#selected-year').text(carYear);
+      $('#selected-year').val(carYear);
       console.log(carYear);
     }
     if ($this.data('make2')) {
       carMake = $this.data('make2');
-      $('#selected-make').text(carMake);
+      $('#selected-make').val(carMake);
       console.log(carMake);
 
     }
     if ($this.data('modelss')) {
       carModel = $this.data('modelss');
-      $('#selected-model').text(carModel);
+      $('#selected-model').val(carModel);
       console.log(carModel);
 
     }
     $this.tab('show');
   });
 
-  $('form').on('submit', function(e) {
+  $('.carform').on('submit', function(e) {
     e.preventDefault();
     // TODO: Submit form data to server
     console.log('Selected Car Year: ' + carYear);
