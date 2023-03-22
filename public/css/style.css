@@ -266,7 +266,7 @@ p.card-text {
 
 }
 .list-group-item {
-  width: 20%;
+  width: 19%;
   float: right;
   display: inline-block;
   border: 1px solid #CCC!important;
@@ -510,4 +510,12 @@ form {
   .fatoranow {
     display: none;
   }
+  .overlayy, .header{
+    height: 50px!important;
+    min-height: 50px!important;
+  }
+}
+* {
+  font-family: 'Changa', sans-serif!important;
+
 }

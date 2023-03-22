@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\CarModel;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post("/getModels", function (Request $request) {
     return CarModel::where('car_category_id', $request->id)->get();
 })->name('getModels');
+
+
+Route::get('del-cart/{id}', function ($id) {
+    $cart = Cart::findOrFail($id);
+    $cart->delete();
+});
+Route::POST('inc-cart/{id}', function (Request $request, $id) {
+    $cart = Cart::findOrFail($id);
+    $cart->update([
+        'count' => $request->count
+    ]);
+});

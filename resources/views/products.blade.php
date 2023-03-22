@@ -20,9 +20,9 @@
               </div>
             </div>
             <div class="col-md-4">
-              <select class="form-control form-control-lg">
-                <option>السعر بالجملة</option>
-                <option>السعر قطاعي</option>
+              <select class="form-control form-control-lg" id="my-select">
+                <option value="g">السعر بالجملة</option>
+                <option value="k">السعر قطاعي</option>
               </select>
             </div>
           </div>
@@ -48,8 +48,8 @@
               <img class="card-img-top" src="img/product.png" alt="Card image cap">
               <div class="card-body">
                 <p class="card-text">{{$product->name}}</p>
-                <p> دينار<span style="float: right;color:rgb(98, 0, 255);font-weight:bold" id="price1">{{$product->price1}} </span></p>
-                <p> دينار<span style="float: right;color:rgb(98, 0, 255);font-weight:bold" id="price2">{{$product->price2}} </span></p>
+                <p  class="price1"> دينار<span style="float: right;color:rgb(98, 0, 255);font-weight:bold">{{$product->price1}} </span></p>
+                <p class="price2" style="display: none" > دينار<span style="float: right;color:rgb(98, 0, 255);font-weight:bold" >{{$product->price2}} </span></p>
                 <span class="fa fa-circle" id="red"></span>
                 <span class="fa fa-circle" id="teal"></span>
                 <span class="fa fa-circle" id="blue"></span>
@@ -62,5 +62,19 @@
     </div>
   </div>
 </section>
-
+<script>
+  $(document).ready(function() {
+  $('#my-select').on('change', function() {
+    var selectedValue = $(this).val();
+    console.log(selectedValue);
+    if (selectedValue == 'g') {
+      $('.price1').css("display", "block");
+      $('.price2').css("display", "none");
+    } else {
+      $('.price2').css("display", "block");
+      $('.price1').css("display", "none");
+  }
+});
+});
+</script>
 @endsection

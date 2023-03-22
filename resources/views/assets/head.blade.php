@@ -12,17 +12,17 @@
           <a class="nav-link" href="/">الرئسية </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">شراء</a>
+          <a class="nav-link" href="{{route('serachByName')}}">المنتجات</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('fawater')}}">الفواتير</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">الزمم</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">فاتورة</a>
+          <a class="nav-link" href="{{route('cart')}}">السلة</a>
         </li>
-        {{-- <li class="nav-item">
-          <a class="nav-link" href="#">الجرد</a>
-        </li> --}}
         <li class="nav-item">
           <a class="nav-link" href="#">تواصل</a>
         </li>

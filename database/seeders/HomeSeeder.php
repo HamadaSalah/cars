@@ -6,6 +6,7 @@ use App\Models\CarCategory;
 use App\Models\CarModel;
 use App\Models\Category;
 use App\Models\Item;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,6 +19,11 @@ class HomeSeeder extends Seeder
      */
     public function run()
     {
+        User::create([
+            'name' => 'user',
+            'email' => 'user@user.com',
+            'password' => encrypt('12332100')
+        ]);
         CarCategory::create([
             'name' => 'تويوتا'
         ]);
@@ -189,9 +195,9 @@ class HomeSeeder extends Seeder
             'img' => 'default.png',
             'oem' => '15474517',
             'year' => '2014',
-            'car_category_id' => 3,
-            'car_model_id' => 3,
-            'category_id' => 3,
+            'car_category_id' => 5,
+            'car_model_id' => 4,
+            'category_id' => 5,
         ]);
     }
 }

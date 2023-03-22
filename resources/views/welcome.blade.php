@@ -81,7 +81,7 @@
               <div class="tab-pane active" id="step1">
                 <div class="list-group">
                   <?php
-                    for($i=2023; $i>=1988; $i--) {
+                    for($i=2023; $i>1988; $i--) {
                       echo '<a href="#step2" class="list-group-item list-group-item-action" data-toggle="tab" data-year="' .$i.  '">' .$i.  '</a>';
                     }
                     ?>
@@ -102,7 +102,7 @@
                 </div>
               </div>
               <div class="tab-pane" id="step4">
-                <h3>لقد اختارت ذلك الاختيارات</h3>
+                <h3>لقد اخترت ذلك الاختيارات</h3>
                 <ul>
                   <li>السنة: <input name="year" id="selected-year" value="" disabled/> </li>
                   <li>النوع: <input name="carcat" id="selected-make" value="" disabled> </li>

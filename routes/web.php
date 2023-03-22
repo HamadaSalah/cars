@@ -18,6 +18,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $cars = CarCategory::all();
     return view('welcome', compact('cars'));
-});
+})->name('home');
 Route::post("serachByName", [HomeController::class, 'serachByName'])->name('serachByName');
 Route::get("SeaechSteps", [HomeController::class, 'SeaechSteps'])->name('SeaechSteps');
+Route::POST("addToCart/{id}", [HomeController::class, 'addToCart'])->name('addToCart');
+Route::get("cart", [HomeController::class, 'cart'])->name('cart');
+Route::get("convertToShow", [HomeController::class, 'convertToShow'])->name('convertToShow');
+Route::get("convertToShowGet/{id}", [HomeController::class, 'convertToShowGet'])->name('convertToShowGet');
+Route::get("convertToFatorah/{id}", [HomeController::class, 'convertToFatorah'])->name('convertToFatorah');
+Route::get("fawater", [HomeController::class, 'fawater'])->name('fawater');
+Route::get("editfatorah/{id}", [HomeController::class, 'editfatorah'])->name('editfatorah');
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -13,11 +13,13 @@
     <meta name="Keywords" content="">
     <meta name="Description" content="">
     <meta name="csrf-token" content="">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@200;400;500&display=swap" rel="stylesheet">
     <!-- Stylesheet -->
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css"  >
-    <link rel="stylesheet" href="css/style.css"  >
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}"  >
+    <link rel="stylesheet" href="{{asset('css/style.css')}}"  >
     
 
     <!-- FavIcon -->

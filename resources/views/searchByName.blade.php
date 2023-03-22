@@ -28,7 +28,12 @@
               <td>{{$item->count2}}</td>
               <td>{{$item->price1}} دينار</td>
               <td>{{$item->price2}}</td>
-              <td><button class="btn btn-primary"> اضف الي السلة</button></td>
+              <td>
+                <form action="{{route('addToCart', $item->id)}}" method="POST">
+                @csrf
+                <button class="btn btn-primary" type="submit"> اضف الي السلة</button></td>
+              </form>
+                {{-- <a href="{{route('addToCart', $item->id)}}"></a> --}}
             </tr>                
             @endforeach
          </tbody>
