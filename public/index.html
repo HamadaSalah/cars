@@ -1,0 +1,176 @@
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+
+        Cars
+
+    </title>
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <meta name="csrf-token" content="">
+
+    <!-- Stylesheet -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css"  >
+    <link rel="stylesheet" href="css/style.css"  >
+    
+
+    <!-- FavIcon -->
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png ">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png ">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff"> -->
+    <!-- OG Meta -->
+    <!-- <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <meta property="og:description" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="fb:page_id" content="" />
+
+    <meta name="twitter:card" content="">
+    <meta name="twitter:site" content="@site_account">
+    <meta name="twitter:creator" content="@individual_account">
+    <meta name="twitter:url" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+
+    <link rel="canonical" href=""> -->
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+</head>
+  <body>
+
+    <nav class="navbar default navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="img/car.png" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">الرئسية </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">شراء</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">الزمم</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">فاتورة</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">الجرد</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">تواصل</a>
+            </li>
+           </ul>
+        </div>
+      </nav>
+      <div class="header">
+        <div class="overlayy">
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border">اسم القطعة</legend>
+                <div class="control-group">
+                    <div class="controls ">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="ماتور" aria-label="Username" aria-describedby="basic-addon1">
+                          </div>
+                          
+                        <i class="icon-time"></i>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border"> OEM رقم </legend>
+                <div class="control-group">
+                    <div class="controls ">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="1234445" aria-label="Username" aria-describedby="basic-addon1">
+                          </div>
+                          
+                        <i class="icon-time"></i>
+                    </div>
+                </div>
+            </fieldset>
+            <button class="btn btn-success sebtn">بحث</button>
+            
+        </div>
+      </div>
+      <section class="selectcaa"> 
+        <div class="container ">
+          <div class="selectcar">
+            <h1>اختر مواصفات السيارة التي تبحث عنها</h1>
+            <div class="selectcarbody">
+              <div class="tab-status">
+                <span class="tab active"></span>
+                <span class="tab"></span>
+                <span class="tab"></span>
+              </div>
+              <form action="#">
+                <div role="tab-list">
+                  <div role="tabpanel" id="color" class="tabpanel">
+                    <h3>السنة</h3>
+                    <div class="btn-group" data-toggle="buttons">
+                      <input id="2023" type="checkbox" value="none" name="year[]" class="form-input"> 2023
+                      <label for="2023" class="btn btn-primary YearClick" data-value="2023">
+                      </label>
+                    </div>
+                    
+                    <textarea name="color"></textarea>
+                  </div>
+                  <div role="tabpanel" id="hobbies" class="tabpanel hidden">
+                    <h3>What are your hobbies?</h3>
+                    <textarea name="hobbies" class="form-input" placeholder="Mountain climbing, Guitar, Skateboarding"></textarea>
+                  </div>
+                    <div role="tabpanel" id="occupation" class="tabpanel hidden">
+                    <h3>What is your occupation?</h3>
+                    <textarea name="occupation" class="form-input" placeholder="Web Designer"></textarea>
+                  </div>
+                </div>
+                  <div class="pagination">
+                    <a class="btn hidden" id="prev">Previous</a>
+                    <a class="btn" id="next">Continue</a>
+                    <button class="btn btn-submit hidden" id="submit">Submit</button>
+                  </div>
+                </form>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      <div class="footer">
+        All Right Reserved &copy; 2023
+      </div>
+      <!-- <script src="js/jquery-3.6.4.js" ></script>     -->
+      <script src="js/bootstrap.bundle.min.js" ></script>  
+      <script>
+        $(document).ready(function(){
+          $(".YearClick").on("click", function(){
+            alert("The paragraph was clicked.");
+          });
+        });
+        </script>
+                
+     </body>
+</html>

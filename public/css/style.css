@@ -1,0 +1,507 @@
+.navbar-expand-lg .navbar-nav {
+  direction: ltr;
+  float: left;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  flex-flow: row-reverse;
+}
+.header {
+    width: 100%;
+    min-height: 700px;
+    background: url('../img/auto-mechanic-working-garage-repair-service.jpg') no-repeat center;
+    background-size: cover;
+}
+.header .overlayy {
+    width: 100%;
+    min-height: 700px;
+    background: rgb(13 7 60 / 70%);
+    padding: 80px 25%;
+    display: block;
+    margin: auto;
+    padding-top: 150px;
+}
+
+.navbar-expand-lg .navbar-collapse {
+  display: block!important;
+}
+
+fieldset.scheduler-border {
+    border: 4px solid #fff !important;
+    padding: 0 30px  !important;
+    margin: 0 0 1.5em 0 !important;
+    border-radius: 25px;
+    color: #FFF;
+    margin: auto;
+    text-align: center;
+}
+
+legend.scheduler-border {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: right !important;
+}
+legend.scheduler-border {
+    width:inherit; /* Or auto */
+    padding:0 10px; /* To give a bit of padding on the left and right */
+ }
+
+.overlayy input {
+    background: transparent;
+    border: 0;
+    text-align: right;
+    color: #FFF;
+    font-size: 20px;
+}
+  .sebtn, .sebtn:focus, .sebtn:visited, .sebtn:hover, .sebtn:focus-visible{
+    font-size: 20px;
+    padding:  10px 50px;
+    border-radius: 25px;
+    background-color: #fff;
+    color: rgb(20, 0, 68);
+    border: none;
+}
+.footer {
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    font-size: 18px;
+    background-color: #203697;
+    font-weight: bold;
+    color: #fff;
+} 
+
+.navbar {
+    background-color: transparent!important;
+    position: absolute;
+    left: 0;
+    display: flex;
+    width: 100%;
+}
+
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    font-size: 20px;
+    color: #FFF;
+    font-weight: bold;
+}
+
+.form-input {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: .5rem;
+  box-shadow: inset 0px 1px 2px rgba(0, 0, 0, .1);
+  padding: 1rem;
+  box-sizing: border-box;
+  color: var(--text-color);
+  transition: ease-in-out .3s all;
+}
+
+.form-input::placeholder {
+  color: #cbd5e1;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-1);
+}
+
+.btn:focus-within,
+.form-input:focus-within {
+  box-shadow: #f8fafc 0px 0px 0px 2px, #c7d2fe 0px 0px 0px 6px, #0000 0px 1px 2px 0px;
+}
+
+textarea.form-input {
+  min-height: 150px;
+}
+
+ .btn[disabled] {
+  opacity: .5;
+  pointer-events: none;
+}
+
+
+.pagination {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination .btn {
+    width: 100%;
+    text-align: center;
+    margin: 0 6px;
+    background: #2948ab;
+}
+
+.tab-status {
+  display: flex;
+  align-items: center;
+}
+
+.tab-status span {
+  appearance: none;
+  background: var(--status-btn-bg);
+  border: none;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  margin-right: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-status span.active {
+  background-color: var(--color-2);
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+
+.selectcar {
+    background: #fff;
+    box-shadow: 0 0 5px #ccc;
+    border-radius: 15px;
+    display: block;
+    overflow: hidden;
+    /* padding: 50px; */
+ }
+
+.selectcaa {
+    padding: 100px 0;
+}
+.selectcar h1{
+    font-size: 2.5rem;
+    background: #2948ab;
+    color: #FFF;
+    padding: 20px;
+
+ }
+.selectcarbody {
+    padding: 50px;
+}
+.yearbtn {
+    background-color: #f1f1f1;
+    color: #000;
+    border: none;
+    border-radius: 5px!important;
+    margin-left: 10px
+}
+.yearbtn input[type="checkbox"] {
+    display: none;
+}
+.btn-group, .btn-group-vertical {
+    display: block;
+}
+.card-img, .card-img-top {
+  margin-top: 20px;
+}
+p.card-text {
+  font-weight: bold;
+}
+ 
+#PROducts {
+  display: block;
+  padding: 50px 0;
+}
+#PROducts input {
+  height: 45px;
+}
+ .categories {
+  padding: 20px;
+  border: 1px solid #CCC;
+ }
+ .categories ul {
+  list-style: none;
+ }
+ .categories ul li a {
+  color: #535353;
+  font-size: 20px;
+ }
+ .filters{
+  background: #0d1f9b;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+ }
+.filters .form-group {
+  margin-bottom: 0;
+}
+
+
+/* 
+
+ ::placeholder  
+  color: #fff !important;
+  opacity: 1;  
+}
+
+:-ms-input-placeholder {  
+  color: #fff !important;
+}
+
+::-ms-input-placeholder {  
+  color: #fff !important;
+} */
+.list-group {
+  display: contents;
+}
+
+.list-group-item {
+  width: 50%;
+  float: right;
+  display: inline;
+
+}
+.list-group-item {
+  width: 20%;
+  float: right;
+  display: inline-block;
+  border: 1px solid #CCC!important;
+    margin: 0 0 2px 2px;
+}
+.carselectorss {
+  width: 100%;
+  display: block;
+  min-height: 500px;
+  background-color: rgb(218, 218, 218);
+  border-radius: 25px;
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+.carselectorss > h2 {
+  background-color: #0d1f9b;
+  padding: 20px;
+  color: #FFF;
+  font-size: 22px;
+}
+form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Style the tabs */
+.tab {
+  display: none;
+}
+
+/* Add a background color to the active tab */
+.active {
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.product-image {
+  float: left;
+  width: 20%;
+}
+
+.product-details {
+  float: left;
+  width: 37%;
+}
+
+.product-price {
+  float: left;
+  width: 12%;
+}
+
+.product-quantity {
+  float: left;
+  width: 10%;
+}
+
+.product-removal {
+  float: left;
+  width: 9%;
+}
+
+.product-line-price {
+  float: left;
+  width: 12%;
+  text-align: right;
+}
+
+/* This is used as the traditional .clearfix class */
+.group:before, .shopping-cart:before, .column-labels:before, .product:before, .totals-item:before,
+.group:after,
+.shopping-cart:after,
+.column-labels:after,
+.product:after,
+.totals-item:after {
+  content: '';
+  display: table;
+}
+
+.group:after, .shopping-cart:after, .column-labels:after, .product:after, .totals-item:after {
+  clear: both;
+}
+
+.group, .shopping-cart, .column-labels, .product, .totals-item {
+  zoom: 1;
+}
+
+/* Apply clearfix in a few places */
+/* Apply dollar signs */
+.product .product-price:before, .product .product-line-price:before, .totals-value:before {
+  content: '$';
+}
+
+ 
+.shopping-cart {
+  margin-top: 45px;
+}
+
+/* Column headers */
+.column-labels label {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+ 
+
+/* Product entries */
+.product {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #1d308f;
+  font-size: 17px!important;
+  font-weight: bold;
+}
+.product .product-image {
+  text-align: center;
+  float: right;
+}
+.product .product-image img {
+  width: 100px;
+}
+.product .product-details .product-title {
+  margin-right: 20px;
+  font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
+}
+.product .product-details .product-description {
+  margin: 5px 20px 5px 0;
+  line-height: 1.4em;
+}
+.product .product-quantity input {
+  width: 40px;
+}
+ 
+/* Totals section */
+.totals .totals-item {
+  float: right;
+  clear: both;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.totals .totals-item label {
+  float: right;
+  clear: both;
+  width: 50%;
+  text-align: center;
+  color: #000;
+  font-weight: bold;
+}
+.totals .totals-item .totals-value {
+  float: right;
+  width: 50%;
+  text-align: center;
+}
+.totals .totals-item-total {
+  font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
+}
+
+.checkout {
+  float: right;
+  border: 0;
+  margin-top: 20px;
+  padding: 6px 25px;
+  background-color: #6b6;
+  color: #fff;
+  font-size: 25px;
+  border-radius: 3px;
+}
+
+.checkout:hover {
+  background-color: #494;
+}
+.product div {
+  float: right;
+}
+.column-labels label {
+  float: right;
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 3px solid #1d308f;
+}
+.shopping-cart {
+  width: 100%;
+}
+.totals {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+  height: 200px;
+  margin: auto;
+}
+.totals {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+  height: 200px;
+  margin: auto;
+  padding: 20px;
+  background: aliceblue;
+  border: 1px solid #1d308f;
+  border-radius: 5px;
+}
+.dealertable {
+  color: #212529;
+  margin: 50px;
+  background: #dee2e6;
+  border-radius: 15px;
+
+}
+.dealertable th{
+  border-bottom: none!important;
+  border-top: none!important;
+}
+.fatoranow {
+  text-align: center;
+  margin: auto;
+  float: none;
+  width: 100%;
+  background: #0d1f9b;
+  border-radius: 25px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 30px;padding: 20px;
+
+}
+
+
+@media print {
+  .fatoranow {
+    display: none;
+  }
+}
