@@ -76,7 +76,7 @@
       <div class="container">
         <div class="carselectorss">
           <h2>اختر مواصفات السيارة التي تبحث عنها</h2>
-          <form class="carform">
+          <form class="carform" action="{{route('SeaechSteps')}}" method="get">
             <div class="tab-content">
               <div class="tab-pane active" id="step1">
                 <div class="list-group">
@@ -104,10 +104,13 @@
               <div class="tab-pane" id="step4">
                 <h3>لقد اختارت ذلك الاختيارات</h3>
                 <ul>
-                  <li>السنة: <input name="year" id="selected-year" disabled/> </li>
-                  <li>النوع: <input name="carcat" id="selected-make" disabled> </li>
-                  <li>الموديل: <input name="carmodel" id="selected-model" disabled></span></li>
+                  <li>السنة: <input name="year" id="selected-year" value="" disabled/> </li>
+                  <li>النوع: <input name="carcat" id="selected-make" value="" disabled> </li>
+                  <li>الموديل: <input name="carmodel" id="selected-model" value="" disabled></span></li>
                 </ul>
+                <input type="hidden" name="year" id="selected-year-1" value=""/>
+                <input type="hidden" name="carcat" id="selected-make-1" value="">
+                <input type="hidden" name="carmodel" id="selected-model-1" value="">
                 <button type="submit" class="btn btn-primary">بحث</button>
               </div>
             </div>
@@ -140,7 +143,7 @@ $(".SelectCarName").on('click', function() {
     success: function(response) {
       console.log( response);
       $.each(response, function(index,res){
-                    $("#CarModelss").append( `<a href="#step4" class="list-group-item list-group-item-action" data-toggle="tab" id="Okay" data-modelss="${res.name}">${res.name}</a>`);
+                    $("#CarModelss").append( `<a href="#step4" class="list-group-item list-group-item-action" data-toggle="tab" id="Okay" data-modd="${res.id}"  data-modelss="${res.name}">${res.name}</a>`);
           });
 
     },
@@ -162,17 +165,22 @@ $(document).ready(function() {
     if ($this.data('year')) {
       carYear = $this.data('year');
       $('#selected-year').val(carYear);
+      $('#selected-year-1').val(carYear);
       console.log(carYear);
     }
     if ($this.data('make2')) {
       carMake = $this.data('make2');
+      carMake1 = $this.data('make');
       $('#selected-make').val(carMake);
+      $('#selected-make-1').val(carMake1);
       console.log(carMake);
 
     }
     if ($this.data('modelss')) {
       carModel = $this.data('modelss');
+      carModel1 = $this.data('modd');
       $('#selected-model').val(carModel);
+      $('#selected-model-1').val(carModel1);
       console.log(carModel);
 
     }
@@ -180,7 +188,7 @@ $(document).ready(function() {
   });
 
   $('.carform').on('submit', function(e) {
-    e.preventDefault();
+    // e.preventDefault();
     // TODO: Submit form data to server
     console.log('Selected Car Year: ' + carYear);
     console.log('Selected Car Make: ' + carMake);

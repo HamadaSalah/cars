@@ -20,3 +20,4 @@ Route::get('/', function () {
     return view('welcome', compact('cars'));
 });
 Route::post("serachByName", [HomeController::class, 'serachByName'])->name('serachByName');
+Route::get("SeaechSteps", [HomeController::class, 'SeaechSteps'])->name('SeaechSteps');
