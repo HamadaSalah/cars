@@ -2,14 +2,13 @@
 @section('section')
 <div class="header">
     <div class="overlayy">
-      <form action="{{route('serachByName')}}" method="POST">
-        @csrf
+      <form action="{{route('serachByName')}}" method="get">
         <fieldset class="scheduler-border">
             <legend class="scheduler-border">اسم القطعة</legend>
             <div class="control-group">
                 <div class="controls ">
                     <div class="input-group mb-3">
-                        <input type="text" name="name" class="form-control" placeholder="ماتور" aria-label="Username" aria-describedby="basic-addon1">
+                        <input type="text" name="name" class="form-control" placeholder="اسم القطعة" aria-label="Username" aria-describedby="basic-addon1">
                       </div>
                       
                     <i class="icon-time"></i>
@@ -23,7 +22,6 @@
                     <div class="input-group mb-3">
                         <input type="text" name="oem" class="form-control" placeholder="1234445" aria-label="Username" aria-describedby="basic-addon1">
                       </div>
-                      
                     <i class="icon-time"></i>
                 </div>
             </div>

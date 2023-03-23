@@ -14,6 +14,16 @@
         <li class="nav-item">
           <a class="nav-link" href="{{route('serachByName')}}">المنتجات</a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            الفواتير
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{route('fawater')}}">الفواتير</a>
+            <a class="dropdown-item" href="{{route('pricelist')}}">عرض سعر</a>
+          </div>
+        </li>
+  
         <li class="nav-item">
           <a class="nav-link" href="{{route('fawater')}}">الفواتير</a>
         </li>

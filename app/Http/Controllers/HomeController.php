@@ -72,20 +72,40 @@ class HomeController extends Controller
             ]);
         }
         DB::table('carts')->truncate();
-        return redirect()->route('convertToShowGet', $show->id);
+        return redirect()->route('pricelistget', $show->id);
     }
     public function convertToShowGet($id)
     {
         $show = Fatorah::findOrFail($id);
         return view('showerPrice', compact('show'));
     }
-    public function convertToFatorah($id)
+    public function convertToFatorah(Request $request, $id)
     {
         $fat = Fatorah::findOrFail($id);
+        if ($request->minus == 'one') {
+            foreach ($fat->products as $pro) {
+                // dd($pro->item);
+                // $check = Item::findOrfail($$pro->item->id);
+                $pro->item->update([
+                    'count1' => $pro->item->count1 - $pro->count
+                ]);
+            }
+        } else {
+            foreach ($fat->products as $pro) {
+                $pro->item->update([
+                    'count2' => $pro->item->count2 - $pro->count
+                ]);
+            }
+        }
+
         $fat->update([
+            "name" => $request->name,
+            "pay" => $request->pay,
+            "rest" => $request->rest,
             'type' => 'fatora'
         ]);
-        return redirect()->back();
+        $show = $fat;
+        return view('showerPrice', compact('show'));
     }
     public function fawater()
     {
@@ -96,8 +116,21 @@ class HomeController extends Controller
     public function editfatorah(Request $request, $id)
     {
         $fat = Fatorah::findOrFail($id);
+
+
         $requestData = $request->only(['name', 'pay', 'rest']);
         $fat->update($requestData);
         return redirect()->back();
+    }
+    //
+    public function pricelist()
+    {
+        $faws = Fatorah::where('type', 'show')->get();
+        return view('pricelistall', compact('faws'));
+    }
+    public function pricelistget($id)
+    {
+        $show = Fatorah::findOrFail($id);
+        return view('pricelistsingle', compact('show'));
     }
 }

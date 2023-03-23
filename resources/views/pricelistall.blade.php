@@ -10,8 +10,8 @@
       <table class="table" dir="rtl">
         <thead class=" " style="background-color: #2948ab;color: #fff;">
           <tr>
-            <th scope="col">اسم الفاتورة</th>
-            <th scope="col">رقم الفاتورة</th>
+            <th scope="col">اسم عارض السعر</th>
+            <th scope="col">رقم العر ض</th>
             <th scope="col">التاريخ</th>
             <th scope="col">التفاصيل</th>
           </tr>
@@ -23,7 +23,7 @@
               <td>{{$item->number}}</td>
               <td>{{$item->created_at}}</td>
                <td>
-                <a href="{{route('convertToShowGet', $item->id)}}"><button class="btn btn-primary">التفاصيل</button></a>
+                <a href="{{route('pricelistget', $item->id)}}"><button class="btn btn-primary">التفاصيل</button></a>
             </td>
              </tr>                
             @endforeach

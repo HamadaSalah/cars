@@ -19,7 +19,7 @@ Route::get('/', function () {
     $cars = CarCategory::all();
     return view('welcome', compact('cars'));
 })->name('home');
-Route::post("serachByName", [HomeController::class, 'serachByName'])->name('serachByName');
+Route::get("serachByName", [HomeController::class, 'serachByName'])->name('serachByName');
 Route::get("SeaechSteps", [HomeController::class, 'SeaechSteps'])->name('SeaechSteps');
 Route::POST("addToCart/{id}", [HomeController::class, 'addToCart'])->name('addToCart');
 Route::get("cart", [HomeController::class, 'cart'])->name('cart');
@@ -27,6 +27,8 @@ Route::get("convertToShow", [HomeController::class, 'convertToShow'])->name('con
 Route::get("convertToShowGet/{id}", [HomeController::class, 'convertToShowGet'])->name('convertToShowGet');
 Route::get("convertToFatorah/{id}", [HomeController::class, 'convertToFatorah'])->name('convertToFatorah');
 Route::get("fawater", [HomeController::class, 'fawater'])->name('fawater');
+Route::get("pricelist", [HomeController::class, 'pricelist'])->name('pricelist');
+Route::get("pricelist/{id}", [HomeController::class, 'pricelistget'])->name('pricelistget');
 Route::get("editfatorah/{id}", [HomeController::class, 'editfatorah'])->name('editfatorah');
 // Auth::routes();
 

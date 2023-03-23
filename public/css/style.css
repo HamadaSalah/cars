@@ -1,10 +1,10 @@
 .navbar-expand-lg .navbar-nav {
-  direction: ltr;
+  /* direction: ltr;
   float: left;
   text-align: center;
   margin: auto;
   display: flex;
-  flex-flow: row-reverse;
+  flex-flow: row-reverse; */
 }
 .header {
     width: 100%;
@@ -22,10 +22,7 @@
     padding-top: 150px;
 }
 
-.navbar-expand-lg .navbar-collapse {
-  display: block!important;
-}
-#selected-year,
+ #selected-year,
 #selected-make,
 #selected-model{
   background: transparent;
@@ -518,4 +515,19 @@ form {
 * {
   font-family: 'Changa', sans-serif!important;
 
+}
+@media screen and (max-width: 1200px) {
+  .header .overlayy {
+    padding: 0;
+    padding-top: 210px;
+
+  }
+  .navbar-expand-lg .navbar-nav{
+    background: #0d1f9b9c;
+    padding: 20px;
+    border-radius: 15px;
+  }
+  .list-group-item {
+    padding: 6px;
+  }
 }
