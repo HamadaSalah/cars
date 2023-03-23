@@ -107,9 +107,13 @@ class HomeController extends Controller
         $show = $fat;
         return view('showerPrice', compact('show'));
     }
-    public function fawater()
+    public function fawater(Request $request)
     {
-        $faws = Fatorah::where('type', 'fatora')->get();
+        $faws = Fatorah::where('type', 'fatora');
+        if ($request->has('search')) {
+            $faws = $faws->where('name', 'LIKE', "%{$request->search}%");
+        }
+        $faws = $faws->get();
         return view('fawater', compact('faws'));
     }
 
@@ -123,9 +127,14 @@ class HomeController extends Controller
         return redirect()->back();
     }
     //
-    public function pricelist()
+    public function pricelist(Request $request)
     {
-        $faws = Fatorah::where('type', 'show')->get();
+        $faws = Fatorah::where('type', 'show');
+        if ($request->has('search')) {
+            $faws = $faws->where('name', 'LIKE', "%{$request->search}%");
+        }
+        $faws = $faws->get();
+
         return view('pricelistall', compact('faws'));
     }
     public function pricelistget($id)
