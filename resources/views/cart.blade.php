@@ -35,11 +35,11 @@
               <div class="product-details">
                 <div class="product-title">{{$cart->item->name}}</div>
               </div>
-              <div class="product-price">{{$cart->item->price1}}</div>
+              <div class="product-price">{{$cart->item->price1}} دينار</div>
               <div class="product-quantity">
                 <input type="number" class="UpdateCount" value="{{$cart->count}}" min="1" data-id="{{$cart->id}}" >
               </div>
-              <div class="product-line-price">{{$cart->item->price1*$cart->count}}</div>
+              <div class="product-line-price">{{$cart->item->price1*$cart->count}} دينار</div>
               <div class="product-removal">
                 <button class="remove-product btn btn-danger DeleteCart" data-id="{{$cart->id}}">
                   حذف
@@ -53,19 +53,19 @@
           <div class="totals">
             <div class="totals-item">
               <label>الاجمالي</label>
-              <div class="totals-value" id="cart-subtotal">71.97</div>
+              <div class="totals-value" id="cart-subtotal">{{$total}} دينار</div>
             </div>
             <div class="totals-item">
-              <label>الضريبة (5%)</label>
-              <div class="totals-value" id="cart-tax">3.60</div>
+              <label>الضريبة (19%)</label>
+              <div class="totals-value" id="cart-tax">{{intval($total/100*19)}} دينار</div>
             </div>
-            <div class="totals-item">
+            {{-- <div class="totals-item">
               <label>الشحن</label>
               <div class="totals-value" id="cart-shipping">15.00</div>
-            </div>
+            </div> --}}
             <div class="totals-item totals-item-total">
               <label>التوتال</label>
-              <div class="totals-value" id="cart-total">90.57</div>
+              <div class="totals-value" id="cart-total">{{intval($total+$total/100*19)}} دينار</div>
             </div>
           </div>
           <div class="clearfix"></div>

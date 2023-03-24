@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
 use App\Models\CarCategory;
 use App\Models\CarModel;
 use App\Models\Category;
@@ -22,7 +23,12 @@ class HomeSeeder extends Seeder
         User::create([
             'name' => 'user',
             'email' => 'user@user.com',
-            'password' => encrypt('12332100')
+            'password' => bcrypt('12332100')
+        ]);
+        Admin::create([
+            'name' => 'admin',
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('elsaad1333')
         ]);
         CarCategory::create([
             'name' => 'تويوتا'
@@ -193,11 +199,11 @@ class HomeSeeder extends Seeder
             'price1' => '15',
             'price2' => '18',
             'img' => 'default.png',
-            'oem' => '15474517',
+            'oem' => '14444444',
             'year' => '2014',
             'car_category_id' => 5,
             'car_model_id' => 4,
-            'category_id' => 5,
+            'category_id' => 1,
         ]);
     }
 }

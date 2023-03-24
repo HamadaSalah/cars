@@ -65,9 +65,16 @@
            </tbody>
         </table>
         <div class="col-md-12">
-          <div class="filters" style="display: block;width: 100%;height: 80px;">
+          <div class="filters" style="display: block;width: 100%;min-height: 80px;">
             <h3  style="color: #FFF;float: right;">المجموع</h3>
             <h3 style="color: #fff;float: left;">{{$total}} دينار</h3>
+            <div class="clearfix"></div>
+            <h3  style="color: #FFF;float: right;direction: rtl;"> الضريبة <span>(19%) </span>  </h3>
+            <h3 style="color: #fff;float: left;">{{intval($total*19/100)}} دينار</h3>
+            <div class="clearfix"></div>
+            <h3  style="color: #FFF;float: right;">المجموع</h3>
+            <h3 style="color: #fff;float: left;">{{$total+intval($total*19/100)}} دينار</h3>
+            <div class="clearfix"></div>
           </div>
           @if ($show->type == 'fatora')
           @else
@@ -79,9 +86,14 @@
           <br/>
           <br/>
           @endif
+          <div class="sign">
+            <p>التوقيع</p>
+            <img src="{{asset('img/sign.jpg')}}" style="margin-bottom: 20px" alt="">
+          </div>
 
           <a href="#"><button class="fatoranow"  data-toggle="modal" data-target="#exampleModal">تعديل البيانات</button></a>
-          
+          <a  ><button class="fatoranow" onclick="window.print();">طباعة</button></a>
+
 
         </div>
       </div>

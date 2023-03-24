@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Category;
 use App\Models\Fatorah;
 use App\Models\FatorahProduct;
 use App\Models\Item;
@@ -27,6 +28,7 @@ class HomeController extends Controller
 
     public function SeaechSteps(Request $request)
     {
+        $cats  = Category::all();
         $products = Item::where('id', '!=', 0);
         if ($request->year) {
             $products = $products->where('year', $request->year);
@@ -37,9 +39,12 @@ class HomeController extends Controller
         if ($request->carmodel) {
             $products = $products->where('car_model_id', $request->carmodel);
         }
+        if ($request->model) {
+            $products = $products->where('category_id', $request->model);
+        }
         $products = $products->get();
-
-        return view('products', compact('products'));
+        $searchwords = $request->yearText . ' - ' . $request->carcatText . ' - ' . $request->carmodelText;
+        return view('products', compact('products', 'searchwords', 'cats'));
     }
     public function addToCart($id)
     {
@@ -47,13 +52,15 @@ class HomeController extends Controller
             'user_id' => 1,
             'item_id' => $id,
         ]);
-        return redirect()->route('home')->with('success', 'Added Succesfully');
+        return redirect()->back()->with('message', 'Added Succesfully');
     }
     public function cart()
     {
         $carts = Cart::with('item')->get();
-        // dd($carts);
-        return view('cart', compact('carts'));
+        $total = $carts->sum(function ($item) {
+            return $item->item->price1 * $item->count;
+        });
+        return view('cart', compact('carts', 'total'));
     }
     public function convertToShow()
     {
@@ -111,7 +118,7 @@ class HomeController extends Controller
     {
         $faws = Fatorah::where('type', 'fatora');
         if ($request->has('search')) {
-            $faws = $faws->where('name', 'LIKE', "%{$request->search}%");
+            $faws = $faws->where('number', $request->search);
         }
         $faws = $faws->get();
         return view('fawater', compact('faws'));
@@ -131,7 +138,7 @@ class HomeController extends Controller
     {
         $faws = Fatorah::where('type', 'show');
         if ($request->has('search')) {
-            $faws = $faws->where('name', 'LIKE', "%{$request->search}%");
+            $faws = $faws->where('number', $request->search);
         }
         $faws = $faws->get();
 

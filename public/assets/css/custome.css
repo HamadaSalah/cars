@@ -1,0 +1,53 @@
+.homeslider p {
+    font-size: 21px;
+    font-family: 'Open Sans', sans-serif ;
+}
+.slick-next, .slick-prev {
+    display: none!important;
+}
+.events span {
+    font-family: 'Open Sans';
+}
+.white_bg h6 {
+    font-size: 16px;
+    color: #bb2d3b;
+    font-weight: 600;
+    margin-bottom: 0;
+    line-height: 22px;
+}
+.card-title {
+    text-transform: uppercase;
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.historydiv p, .missiondiv p, .visiondiv p{
+    font-family: 'Open Sans';
+    font-weight: 500;
+    font-size: 18px;
+}
+.rechp p {
+    font-family: 'Open Sans';
+    font-weight: 500;
+    font-size: 18px;
+}
+.addresses a {
+    font-weight: 500;
+}
+.rehus {
+    font-family: 'Open Sans';
+}
+
+footer .fa {
+    font-size: 22px!important;
+    color: #FFF;
+}
+.pb-2 {
+    font-family: 'Open Sans';
+}
+@media screen and (max-width: 798px) {
+    .misimg img {
+        height: unset!important;
+    }
+}

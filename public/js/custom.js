@@ -6,7 +6,9 @@ $(document).ready(function () {
         alert($(this).find(".form-input").val());
   
     });
-    
+    $(".addingcart").click(function(){
+      $(this).css({"pointer-events": "none","opacity": "0.4"});
+    });
     
  
 });
@@ -15,7 +17,7 @@ $(document).ready(function () {
 
 
 /* Set rates + misc */
-var taxRate = 0.05;
+var taxRate = 0.16;
 var shippingRate = 15.00; 
 var fadeTime = 300;
 
@@ -42,7 +44,7 @@ function recalculateCart()
   
   /* Calculate totals */
   var tax = subtotal * taxRate;
-  var shipping = (subtotal > 0 ? shippingRate : 0);
+  var shipping = 0;
   var total = subtotal + tax + shipping;
   
   /* Update totals display */

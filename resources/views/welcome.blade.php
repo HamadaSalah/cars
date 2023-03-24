@@ -16,7 +16,7 @@
             </div>
         </fieldset>
         <fieldset class="scheduler-border">
-            <legend class="scheduler-border"> OEM رقم </legend>
+            <legend class="scheduler-border">  رقم OEM </legend>
             <div class="control-group">
                 <div class="controls ">
                     <div class="input-group mb-3">
@@ -102,9 +102,9 @@
               <div class="tab-pane" id="step4">
                 <h3>لقد اخترت ذلك الاختيارات</h3>
                 <ul>
-                  <li>السنة: <input name="year" id="selected-year" value="" disabled/> </li>
-                  <li>النوع: <input name="carcat" id="selected-make" value="" disabled> </li>
-                  <li>الموديل: <input name="carmodel" id="selected-model" value="" disabled></span></li>
+                  <li>السنة: <input  id="selected-year" name="yearText"/> </li>
+                  <li>النوع: <input   id="selected-make" name="carcatText"> </li>
+                  <li>الموديل: <input  id="selected-model" name="carmodelText"></span></li>
                 </ul>
                 <input type="hidden" name="year" id="selected-year-1" value=""/>
                 <input type="hidden" name="carcat" id="selected-make-1" value="">

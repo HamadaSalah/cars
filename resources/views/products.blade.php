@@ -16,13 +16,13 @@
         <div class="row">
             <div class="col-md-8">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="بحــــــــــــــــــث">
+                <input type="text" class="form-control" placeholder="{{$searchwords}}">
               </div>
             </div>
             <div class="col-md-4">
               <select class="form-control form-control-lg" id="my-select">
                 <option value="g">السعر بالجملة</option>
-                <option value="k">السعر قطاعي</option>
+                <option value="k">السعر مفرق</option>
               </select>
             </div>
           </div>
@@ -32,11 +32,10 @@
         <div class="categories">
           <h3 class="p-1">الفئات</h3>
           <ul>
-            <li><a href="#">بودي</a></li>
-            <li><a href="#">جناح</a></li>
-            <li><a href="#">اضاءة</a></li>
-            <li><a href="#">شاشات</a></li>
-            <li><a href="#">بضاريات</a></li>
+            @foreach ($cats as $cat)
+                
+            <li><a href="{{'SeaechSteps?'. Request::getQueryString()}}&model={{$cat->id}}">{{$cat->name}}</a></li>
+            @endforeach
           </ul>
         </div>
       </div>
@@ -53,6 +52,11 @@
                 <span class="fa fa-circle" id="red"></span>
                 <span class="fa fa-circle" id="teal"></span>
                 <span class="fa fa-circle" id="blue"></span>
+                <form action="{{route('addToCart', $product->id)}}" method="POST">
+                  @csrf
+                  <button class="btn btn-primary addingcart" type="submit"> اضافة</button></td>
+                </form>
+  
               </div>
             </div> 
           @endforeach

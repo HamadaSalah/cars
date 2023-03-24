@@ -1,6 +1,7 @@
-<nav class="navbar default navbar-expand-lg navbar-light bg-light">
+ <nav class="navbar default navbar-expand-lg navbar-light bg-light">
+  <div class="container">
     <a class="navbar-brand" href="/">
-        <img src="img/car.png" alt="">
+        <img src="{{asset('img/logo.png')}}" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -38,4 +39,14 @@
         </li>
        </ul>
     </div>
+
+  </div>
   </nav>
+  @if(session()->has('message'))
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>تم الاضافة بنجاح</strong> 
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+ @endif
