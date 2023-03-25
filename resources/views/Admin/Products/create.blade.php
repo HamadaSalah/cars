@@ -63,7 +63,7 @@
 
     <div class="form-group">
       <label for="role">المصدر</label>
-      <select class="form-control" id="role" required name="source">
+      <select class="form-control" required name="source">
           <option value="اصلي">اصلي</option>
           <option value="صيني">صيني</option>
           <option value="تايواني">تايواني</option>
@@ -75,7 +75,7 @@
     <br/>
     <div class="form-group">
       <label for="role">السيارة</label> 
-      <select class="form-control" id="role" required name="car_category_id">
+      <select class="form-control" required name="car_category_id"  id="select1" >
         @foreach ($carCats as $carCat)
         <option value="{{$carCat->id}}">{{$carCat->name}}</option>
             
@@ -86,16 +86,16 @@
     <br/>
     <div class="form-group">
       <label for="role">موديل السيارة</label>
-      <select class="form-control" id="role" required name="car_model_id">
-        @foreach ($carModels as $carmod)
+      <select class="form-control" required name="car_model_id" id="select2">
+        {{-- @foreach ($carModels as $carmod)
         <option value="{{$carmod->id}}">{{$carmod->name}}</option>
             
-        @endforeach
+        @endforeach --}}
       </select>
     </div>
     <div class="form-group">
       <label for="role">نوع القطعه</label>
-      <select class="form-control" id="role" required name="category_id">
+      <select class="form-control" required name="category_id">
         @foreach ($cats as $cat)
           <option value="{{$cat->id}}">{{$cat->name}}</option>
         @endforeach
@@ -115,5 +115,34 @@
 <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
 <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
+@endpush
+@push('custom-scripts')
+<script>
+  $(document).ready(function() {
+  $('#select1').on('change', function() {
+    var id = $(this).val();
+    // Make an AJAX r equest to fetch options for select2
+    $.ajax({
+      url: '{{route("getModels")}}',
+      method: 'POST',
+      data: {id: id},
+      success: function(response) {
+        // Clear the existing options in select2
+        $('#select2').empty();
+
+        // Add new options based on the response
+        $.each(response, function(index, option) {
+          $('#select2').append('<option value="' + option.id + '">' + option.name + '</option>');
+        });
+      },
+      error: function() {
+        alert('Error occurred while fetching options for select2.');
+      }
+    });
+  });
+});
+
+</script>
+    
 @endpush
 @endsection

@@ -26,6 +26,21 @@ class HomeController extends Controller
         return view('searchByName', compact('items'));
     }
 
+    public function gard(Request $request)
+    {
+        $cats  = Category::all();
+        $products = Item::where('id', '!=', 0);
+        if ($request->model) {
+            $products = $products->where('category_id', $request->model);
+        }
+        if ($request->name) {
+            $products = $products->where('name', 'LIKE', "%{$request->name}%");
+        }
+        $products = $products->get();
+        $searchwords = $request->name;
+        return view('gard', compact('products', 'searchwords', 'cats'));
+    }
+
     public function SeaechSteps(Request $request)
     {
         $cats  = Category::all();
@@ -49,7 +64,7 @@ class HomeController extends Controller
     public function addToCart($id)
     {
         Cart::create([
-            'user_id' => 1,
+            'user_id' => auth()->user()->id,
             'item_id' => $id,
         ]);
         return redirect()->back()->with('message', 'Added Succesfully');
@@ -72,7 +87,7 @@ class HomeController extends Controller
         ]);
         foreach ($carts as $cart) {
             FatorahProduct::create([
-                'user_id' => 1,
+                'user_id' => auth()->user()->id,
                 'fatorah_id' => $show->id,
                 'item_id' => $cart->item->id,
                 'count' => $cart->count

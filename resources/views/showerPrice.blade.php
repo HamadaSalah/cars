@@ -68,12 +68,12 @@
           <div class="filters" style="display: block;width: 100%;min-height: 80px;">
             <h3  style="color: #FFF;float: right;">المجموع</h3>
             <h3 style="color: #fff;float: left;">{{$total}} دينار</h3>
-            <div class="clearfix"></div>
+            {{-- <div class="clearfix"></div>
             <h3  style="color: #FFF;float: right;direction: rtl;"> الضريبة <span>(19%) </span>  </h3>
             <h3 style="color: #fff;float: left;">{{intval($total*19/100)}} دينار</h3>
             <div class="clearfix"></div>
             <h3  style="color: #FFF;float: right;">المجموع</h3>
-            <h3 style="color: #fff;float: left;">{{$total+intval($total*19/100)}} دينار</h3>
+            <h3 style="color: #fff;float: left;">{{$total+intval($total*19/100)}} دينار</h3> --}}
             <div class="clearfix"></div>
           </div>
           @if ($show->type == 'fatora')

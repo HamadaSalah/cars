@@ -79,11 +79,10 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        $carCats = CarCategory::all();
-        $carModels = CarModel::all();
-        $cats = Category::all();
-
         $item = Item::findOrFail($id);
+        $carCats = CarCategory::all();
+        $carModels = CarModel::where('car_category_id', $item->car_category_id)->get();
+        $cats = Category::all();
         return view('Admin.Products.edit', compact('item', 'carCats', 'carModels', 'cats'));
     }
 

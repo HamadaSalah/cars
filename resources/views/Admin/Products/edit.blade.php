@@ -71,7 +71,7 @@
     <br/>
     <div class="form-group">
       <label for="role">السيارة</label>
-      <select class="form-control" id="role" required name="car_category_id">
+      <select class="form-control" id="select1" required name="car_category_id">
         @foreach ($carCats as $carCat)
         <option value="{{$carCat->id}}"  <?php if($carCat->id == $item->car_category_id) { echo ' selected="selected"'; } ?> >{{$carCat->name}}</option>
             
@@ -82,10 +82,9 @@
     <br/>
     <div class="form-group">
       <label for="role">موديل السيارة</label>
-      <select class="form-control" id="role" required name="car_model_id">
+      <select class="form-control" id="select2" required name="car_model_id">
         @foreach ($carModels as $carmod)
         <option value="{{$carmod->id}}"  <?php if($carmod->id == $item->car_model_id) { echo ' selected="selected"'; } ?> >{{$carmod->name}}</option>
-            
         @endforeach
       </select>
     </div>
@@ -112,4 +111,33 @@
 <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
 @endpush
+@push('custom-scripts')
+<script>
+  $(document).ready(function() {
+  $('#select1').on('change', function() {
+    var id = $(this).val();
+    // Make an AJAX r equest to fetch options for select2
+    $.ajax({
+      url: '{{route("getModels")}}',
+      method: 'POST',
+      data: {id: id},
+      success: function(response) {
+        // Clear the existing options in select2
+        $('#select2').empty();
+
+        // Add new options based on the response
+        $.each(response, function(index, option) {
+          $('#select2').append('<option value="' + option.id + '">' + option.name + '</option>');
+        });
+      },
+      error: function() {
+        alert('Error occurred while fetching options for select2.');
+      }
+    });
+  });
+});
+
+</script>
+@endpush
+
 @endsection

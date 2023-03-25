@@ -26,13 +26,20 @@
         </li>
   
         <li class="nav-item">
-          <a class="nav-link" href="{{route('fawater')}}">الفواتير</a>
+          <a class="nav-link" href="{{route('gard')}}">الجرد</a>
         </li>
         {{-- <li class="nav-item">
           <a class="nav-link" href="#">الزمم</a>
         </li> --}}
         <li class="nav-item">
-          <a class="nav-link" href="{{route('cart')}}">السلة</a>
+          <a class="nav-link" style="position: relative;padding-left: 20px" href="{{route('cart')}}"> <span style="position: absolute;
+            left: 1px;
+            top: 1;
+            background: red;
+            padding: 0 6px;
+            border-radius: 50%;
+            color: #FFF;
+            font-size: 14px;">{{cartCount()}}</span> السلة</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">تواصل</a>

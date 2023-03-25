@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\PolicesController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\ReachUsController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\VideosController;
 use App\Http\Controllers\Admin\WelcomeController;
 use App\Http\Controllers\SliderController;
@@ -32,4 +34,6 @@ Route::prefix('admin')->middleware('guest:admin')->name('admin.')->group(functio
 Route::prefix('admin')->middleware('auth:admin')->name('admin.')->group(function () {
     Route::get('/index', [LoginController::class, 'index'])->name('index');
     Route::resource('/products', ProductsController::class);
+    Route::resource('/users', UsersController::class);
+    Route::get('/logger', [UsersController::class, 'logger'])->name('logger');
 });

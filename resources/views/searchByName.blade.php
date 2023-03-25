@@ -7,6 +7,20 @@
   </div>
   <section class="selectcaa"> 
     <div class="container ">
+      <form action="{{route('serachByName')}}" method="get">
+            <legend class="scheduler-border">اسم القطعة</legend>
+            <div class="control-group">
+                <div class="controls ">
+                    <div class="input-group mb-3">
+                        <input type="text" name="name" class="form-control" placeholder="اسم القطعة" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                      
+                    <i class="icon-time"></i>
+                </div>
+            </div>
+        <button class="btn btn-success sebtn" type="submit">بحث</button>
+      </form>
+
       <table class="table" dir="rtl">
         <thead class=" " style="background-color: #2948ab;color: #fff;">
           <tr>
