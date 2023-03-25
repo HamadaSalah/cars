@@ -1,9 +1,14 @@
 <?php
 
+use App\Imports\ImportCarModel;
+use App\Imports\importCars;
+use App\Imports\ImportItem;
 use App\Models\CarModel;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Maatwebsite\Excel\Facades\Excel;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx\Rels;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +38,14 @@ Route::POST('inc-cart/{id}', function (Request $request, $id) {
     $cart->update([
         'count' => $request->count
     ]);
+});
+Route::post('cars', function (Request $request) {
+    $file = $request->file;
+    Excel::import(new importCars, $request->file('file')->store('files'));
+});
+Route::post('carsmodels', function (Request $request) {
+    Excel::import(new ImportCarModel, $request->file('file')->store('files'));
+});
+Route::post('items', function (Request $request) {
+    $data = Excel::import(new ImportItem, $request->file('file')->store('files'));
 });

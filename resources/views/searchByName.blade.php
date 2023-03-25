@@ -25,6 +25,8 @@
         <thead class=" " style="background-color: #2948ab;color: #fff;">
           <tr>
             <th scope="col">اسم القطعة</th>
+            <th scope="col">السيارة</th>
+            <th scope="col">الموديل</th>
             <th scope="col">المصدر</th>
             <th scope="col">الكمية في المستودع</th>
             <th scope="col">الكمية في نقطة البيع</th>
@@ -37,6 +39,8 @@
             @foreach ($items as $item)
             <tr>
               <td>{{$item->name}}</td>
+              <td>{{$item->carCategory->name}}</td>
+              <td>{{$item->carModel->name}}</td>
               <td>{{$item->source}}</td>
               <td>{{$item->count1}}</td>
               <td>{{$item->count2}}</td>
@@ -52,7 +56,7 @@
             @endforeach
          </tbody>
       </table>
-      
+      {{$items->links('pagination::bootstrap-4')}}
     </div>
   </section>
 

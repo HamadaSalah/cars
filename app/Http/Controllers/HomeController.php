@@ -22,7 +22,7 @@ class HomeController extends Controller
         if ($request->oem != null) {
             $search->where('oem', $request->oem);
         }
-        $items = $search->get();
+        $items = $search->paginate(20);
         return view('searchByName', compact('items'));
     }
 
@@ -36,7 +36,7 @@ class HomeController extends Controller
         if ($request->name) {
             $products = $products->where('name', 'LIKE', "%{$request->name}%");
         }
-        $products = $products->get();
+        $products = $products->paginate(20);
         $searchwords = $request->name;
         return view('gard', compact('products', 'searchwords', 'cats'));
     }
@@ -45,9 +45,9 @@ class HomeController extends Controller
     {
         $cats  = Category::all();
         $products = Item::where('id', '!=', 0);
-        if ($request->year) {
-            $products = $products->where('year', $request->year);
-        }
+        // if ($request->year) {
+        //     $products = $products->where('year', $request->year);
+        // }
         if ($request->carcat) {
             $products = $products->where('car_category_id', $request->carcat);
         }

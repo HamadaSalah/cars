@@ -47,14 +47,14 @@
               <img class="card-img-top" src="img/product.png" alt="Card image cap">
               <div class="card-body">
                 <p class="card-text">{{$product->name}}</p>
-                <p  class="price1"> دينار<span style="float: right;color:rgb(98, 0, 255);font-weight:bold">{{$product->price1}} </span></p>
-                <p class="price2" style="display: none" > دينار<span style="float: right;color:rgb(98, 0, 255);font-weight:bold" >{{$product->price2}} </span></p>
+                <p  class="price1"> دينار    <span style="float: right;color:rgb(98, 0, 255);font-weight:bold;padding: 0 3px">{{$product->price1}} </span></p>
+                <p class="price2" style="display: none" > دينار <span style="float: right;color:rgb(98, 0, 255);font-weight:bold;padding: 0 3px" >{{$product->price2}} </span></p>
                 <span class="fa fa-circle" id="red"></span>
                 <span class="fa fa-circle" id="teal"></span>
                 <span class="fa fa-circle" id="blue"></span>
                 <form action="{{route('addToCart', $product->id)}}" method="POST">
                   @csrf
-                  <button class="btn btn-primary addingcart" type="submit"> اضافة</button></td>
+                  <button class="btn btn-primary addingcart" type="submit">  اضافة للسلة</button></td>
                 </form>
   
               </div>

@@ -25,11 +25,6 @@ class HomeSeeder extends Seeder
             'email' => 'user@user.com',
             'password' => bcrypt('12332100')
         ]);
-        Admin::create([
-            'name' => 'admin',
-            'email' => 'admin@admin.com',
-            'password' => bcrypt('elsaad1333')
-        ]);
         CarCategory::create([
             'name' => 'تويوتا'
         ]);
