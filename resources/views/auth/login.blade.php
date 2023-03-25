@@ -8,7 +8,7 @@
     }
 </style>
 <div class="container">
-    <img src="{{asset('img/logo2.png')}}" style="text-align: center;margin: auto;display: block;padding: 50px" alt="">
+    <img src="{{asset('img/logo2.png')}}" style="text-align: center;margin: auto;display: block;padding: 50px;width: 100%" alt="">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
