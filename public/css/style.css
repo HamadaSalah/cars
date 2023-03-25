@@ -559,6 +559,9 @@ form {
     padding-top: 210px;
 
   }
+  .logologin {
+    width: 100%;
+  }
   .navbar-expand-lg .navbar-nav{
     background: #0d1f9b9c;
     padding: 20px;
