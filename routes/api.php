@@ -5,6 +5,9 @@ use App\Imports\importCars;
 use App\Imports\ImportItem;
 use App\Models\CarModel;
 use App\Models\Cart;
+use App\Models\Fatorah;
+use App\Models\FatorahProduct;
+use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Maatwebsite\Excel\Facades\Excel;
@@ -49,3 +52,20 @@ Route::post('carsmodels', function (Request $request) {
 Route::post('items', function (Request $request) {
     $data = Excel::import(new ImportItem, $request->file('file')->store('files'));
 });
+
+Route::post('changeitemCount', function (Request $request) {
+    $request->validate([
+        'id' => 'required',
+        'count' => 'required',
+        'fid' => 'required'
+    ]);
+    $fatora = FatorahProduct::where('fatorah_id', $request->fid)->where('item_id', $request->id)->first();
+
+    $fatora->update([
+        'count' => $request->count
+    ]);
+    $item  = Item::findOrfail($request->id);
+    $item->update([
+        'count1' => $item->count1++
+    ]);
+})->name("changeitemCount");

@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="/">الرئسية </a>
+          <a class="nav-link" href="/">الرئيسية </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{route('serachByName')}}">المنتجات</a>
@@ -28,6 +28,12 @@
         <li class="nav-item">
           <a class="nav-link" href="{{route('gard')}}">الجرد</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('zemam')}}">الذمم</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('backk')}}">استرجاع</a>
+        </li>
         {{-- <li class="nav-item">
           <a class="nav-link" href="#">الزمم</a>
         </li> --}}
@@ -41,10 +47,7 @@
             color: #FFF;
             font-size: 14px;">{{cartCount()}}</span> السلة</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">تواصل</a>
-        </li>
-       </ul>
+        </ul>
     </div>
 
   </div>

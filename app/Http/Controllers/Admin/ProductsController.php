@@ -54,7 +54,8 @@ class ProductsController extends Controller
             "car_model_id" => $request->car_model_id,
             "category_id" => $request->category_id,
             "oem" => $request->oem,
-            "year" => $request->year,
+            "from_year" => $request->from_year,
+            "to_year" => $request->to_year,
 
         ]);
         return redirect()->route('admin.products.index')->with('success', 'تمت الاضافة');

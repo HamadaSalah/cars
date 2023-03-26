@@ -19,6 +19,8 @@
                     <div class="control-group">
                         <div class="controls ">
                             <div class="input-group mb-3">
+                              <input type="hidden" class="form-control" value="{{Request::query('model')}}" name="model" >
+
                                 <input type="text" name="name" class="form-control" placeholder="اسم القطعة" aria-label="Username" aria-describedby="basic-addon1">
                               </div>
                               

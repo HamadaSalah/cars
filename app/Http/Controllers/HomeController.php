@@ -23,6 +23,7 @@ class HomeController extends Controller
             $search->where('oem', $request->oem);
         }
         $items = $search->paginate(20);
+        $items = $items->appends(request()->query());
         return view('searchByName', compact('items'));
     }
 
@@ -45,9 +46,9 @@ class HomeController extends Controller
     {
         $cats  = Category::all();
         $products = Item::where('id', '!=', 0);
-        // if ($request->year) {
-        //     $products = $products->where('year', $request->year);
-        // }
+        if ($request->year) {
+            $products = $products->where('from_year', '<=', $request->year)->where('to_year', '>=', $request->year);
+        }
         if ($request->carcat) {
             $products = $products->where('car_category_id', $request->carcat);
         }
@@ -56,6 +57,9 @@ class HomeController extends Controller
         }
         if ($request->model) {
             $products = $products->where('category_id', $request->model);
+        }
+        if ($request->name) {
+            $products = $products->where('name', 'LIKE', "%{$request->name}%");
         }
         $products = $products->get();
         $searchwords = $request->yearText . ' - ' . $request->carcatText . ' - ' . $request->carmodelText;
@@ -163,5 +167,27 @@ class HomeController extends Controller
     {
         $show = Fatorah::findOrFail($id);
         return view('pricelistsingle', compact('show'));
+    }
+
+    public function zemam(Request $request)
+    {
+        if ($request->name  != null) {
+            $zemam = Fatorah::where('name', 'LIKE', "%{$request->name}%")->where('rest', '!=', 0)->with('products')->get();
+        } else {
+            $zemam = [];
+        }
+        return view('zemam', ['zemam' => $zemam]);
+    }
+    public function backk(Request $request)
+    {
+        return view('backk');
+    }
+    public function backagain(Request $request)
+    {
+        $fatorah = Fatorah::where('number', $request->name)->first();
+        if (!$fatorah) {
+            return abort(404);
+        }
+        return view('backagain', compact('fatorah'));
     }
 }

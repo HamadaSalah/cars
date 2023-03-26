@@ -21,7 +21,8 @@ class Item extends Model
         'img',
         'category_id',
         'oem',
-        'year'
+        'from_year',
+        'to_year'
     ];
 
     public function carCategory()

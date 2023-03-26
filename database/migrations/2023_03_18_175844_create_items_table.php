@@ -26,7 +26,8 @@ return new class extends Migration
             $table->string('price2')->nullable();
             $table->string('img')->nullable();
             $table->string('oem')->nullable();
-            $table->string('year')->nullable();
+            $table->string('from_year')->nullable();
+            $table->string('to_year')->nullable();
             $table->timestamps();
 
             $table->foreign('car_category_id')->references('id')->on('car_categories')->onDelete('cascade');

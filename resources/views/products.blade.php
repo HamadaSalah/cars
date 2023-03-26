@@ -16,7 +16,15 @@
         <div class="row">
             <div class="col-md-8">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="{{$searchwords}}">
+                <form action="" method="Get">
+                  <input type="hidden" class="form-control" value="{{Request::query('year')}}" name="year" placeholder="{{$searchwords}}">
+                  <input type="hidden" class="form-control" value="{{Request::query('carcat')}}" name="carcat" placeholder="{{$searchwords}}">
+                  <input type="hidden" class="form-control" value="{{Request::query('carmodel')}}" name="carmodel" placeholder="{{$searchwords}}">
+                  <input type="text" class="form-control" name="name" placeholder="{{$searchwords}}">
+                  
+                </form>
+                {{-- @dd(Request::getQueryString())
+                <a href="{{'SeaechSteps?'. Request::getQueryString()}}&name={{$cat->name}}"></a> --}}
               </div>
             </div>
             <div class="col-md-4">
@@ -49,9 +57,7 @@
                 <p class="card-text">{{$product->name}}</p>
                 <p  class="price1"> دينار    <span style="float: right;color:rgb(98, 0, 255);font-weight:bold;padding: 0 3px">{{$product->price1}} </span></p>
                 <p class="price2" style="display: none" > دينار <span style="float: right;color:rgb(98, 0, 255);font-weight:bold;padding: 0 3px" >{{$product->price2}} </span></p>
-                <span class="fa fa-circle" id="red"></span>
-                <span class="fa fa-circle" id="teal"></span>
-                <span class="fa fa-circle" id="blue"></span>
+                <p >  المصدر : {{$product->source}} </span></p>
                 <form action="{{route('addToCart', $product->id)}}" method="POST">
                   @csrf
                   <button class="btn btn-primary addingcart" type="submit">  اضافة للسلة</button></td>

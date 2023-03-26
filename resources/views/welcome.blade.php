@@ -100,7 +100,7 @@
                 </div>
               </div>
               <div class="tab-pane" id="step4">
-                <h3>لقد اخترت ذلك الاختيارات</h3>
+                <h3> الاختيارات التي تمت</h3>
                 <ul>
                   <li>السنة: <input  id="selected-year" name="yearText"/> </li>
                   <li>النوع: <input   id="selected-make" name="carcatText"> </li>

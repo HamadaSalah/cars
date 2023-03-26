@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class FatorahProduct extends Model
 {
+    protected $table = 'fatorah_products';
     use HasFactory;
     protected $guarded = [];
     public function item()

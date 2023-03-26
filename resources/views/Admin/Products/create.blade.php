@@ -55,8 +55,15 @@
     <div class="clearfix"></div>
     <br/>
     <div class="form-group">
-      <label >السنة</label>
-      <input type="number" class="form-control" name="year"  required>
+      <label >(من)السنة</label>
+      <input type="number" class="form-control" name="from_year"  required>
+    </div>
+    <div class="clearfix"></div>
+    <br/>
+
+    <div class="form-group">
+      <label >(الى)السنة</label>
+      <input type="number" class="form-control" name="to_year"  required>
     </div>
     <div class="clearfix"></div>
     <br/>

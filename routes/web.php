@@ -33,6 +33,9 @@ Route::middleware(['auth', 'web'])->group(function () {
     Route::get("pricelist/{id}", [HomeController::class, 'pricelistget'])->name('pricelistget');
     Route::get("editfatorah/{id}", [HomeController::class, 'editfatorah'])->name('editfatorah');
     Route::get("gard", [HomeController::class, 'gard'])->name('gard');
+    Route::get("zemam", [HomeController::class, 'zemam'])->name('zemam');
+    Route::get("backk", [HomeController::class, 'backk'])->name('backk');
+    Route::get("backagain", [HomeController::class, 'backagain'])->name('backagain');
 });
 // Auth::routes();
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
