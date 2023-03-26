@@ -83,6 +83,8 @@
     <div class="form-group">
       <label for="role">السيارة</label> 
       <select class="form-control" required name="car_category_id"  id="select1" >
+        <option value="">أختار سيارة</option>
+
         @foreach ($carCats as $carCat)
         <option value="{{$carCat->id}}">{{$carCat->name}}</option>
             
