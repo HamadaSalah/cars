@@ -36,9 +36,9 @@
                         <?php $totalrest += $zema->rest; ?>
                         <tr>
                             <td>{{ $zema->number }}</td>
-                            <td>{{ $zema->created_at }} دينار</td>
-                            <td>{{ $zema->pay }}</td>
-                            <td>{{ $zema->rest }}</td>
+                            <td>{{ $zema->created_at }} </td>
+                            <td>{{ $zema->pay }} دينار</td>
+                            <td>{{ $zema->rest }} دينار</td>
                             <td><a href="{{Route('convertToShowGet', $zema->id)}}"><button class="btn btn-success">عرض</button></a></td>
                         </tr>
                     @endforeach
