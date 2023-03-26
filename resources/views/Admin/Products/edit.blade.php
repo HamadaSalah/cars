@@ -46,13 +46,20 @@
     <br/>
     <div class="form-group">
       <label >OEM</label>
-      <input type="number" class="form-control" name="oem"  required value="{{$item->oem}}">
+      <input type="text" class="form-control" name="oem"  required value="{{$item->oem}}">
     </div>
     <div class="clearfix"></div>
     <br/>
     <div class="form-group">
-      <label >السنة</label>
-      <input type="number" class="form-control" name="year"  required value="{{$item->year}}">
+      <label >(من)السنة</label>
+      <input type="number" class="form-control" name="from_year" value="{{$item->from_year}}"  required>
+    </div>
+    <div class="clearfix"></div>
+    <br/>
+
+    <div class="form-group">
+      <label >(الى)السنة</label>
+      <input type="number" class="form-control" name="to_year" value="{{$item->to_year}}"  required>
     </div>
     <div class="clearfix"></div>
     <br/>

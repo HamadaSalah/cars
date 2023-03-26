@@ -50,7 +50,7 @@
     <br/>
     <div class="form-group">
       <label >OEM</label>
-      <input type="number" class="form-control" name="oem"  required>
+      <input type="text" class="form-control" name="oem"  required>
     </div>
     <div class="clearfix"></div>
     <br/>
