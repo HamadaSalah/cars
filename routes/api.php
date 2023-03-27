@@ -4,6 +4,7 @@ use App\Imports\ImportCarModel;
 use App\Imports\importCars;
 use App\Imports\ImportItem;
 use App\Models\CarModel;
+use App\Models\CarModelModel;
 use App\Models\Cart;
 use App\Models\Fatorah;
 use App\Models\FatorahProduct;
@@ -31,6 +32,10 @@ Route::post("/getModels", function (Request $request) {
     return CarModel::where('car_category_id', $request->id)->get();
 })->name('getModels');
 
+Route::post("/getModelsModels", function (Request $request) {
+    return CarModelModel::where('car_model_id', $request->id)->get();
+})->name('getModelsModels');
+
 
 Route::get('del-cart/{id}', function ($id) {
     $cart = Cart::findOrFail($id);
@@ -54,18 +59,19 @@ Route::post('items', function (Request $request) {
 });
 
 Route::post('changeitemCount', function (Request $request) {
-    $request->validate([
-        'id' => 'required',
-        'count' => 'required',
-        'fid' => 'required'
-    ]);
-    $fatora = FatorahProduct::where('fatorah_id', $request->fid)->where('item_id', $request->id)->first();
-
-    $fatora->update([
-        'count' => $request->count
-    ]);
-    $item  = Item::findOrfail($request->id);
-    $item->update([
-        'count1' => $item->count1++
-    ]);
+    if ($request->count > 0) {
+        $request->validate([
+            'id' => 'required',
+            'count' => 'required',
+            'fid' => 'required'
+        ]);
+        $fatora = FatorahProduct::where('fatorah_id', $request->fid)->where('item_id', $request->id)->first();
+        $fatora->update([
+            'count' => $request->count
+        ]);
+        $item  = Item::findOrfail($request->id);
+        $item->update([
+            'count1' => $item->count1 + 1
+        ]);
+    }
 })->name("changeitemCount");

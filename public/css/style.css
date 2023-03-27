@@ -24,11 +24,12 @@
 
  #selected-year,
 #selected-make,
-#selected-model{
+#selected-model,
+#selected-model-model {
   background: transparent;
     border: none;
     font-weight: bold;
- }
+}
 fieldset.scheduler-border {
     border: 4px solid #fff !important;
     padding: 0 30px  !important;
@@ -38,6 +39,10 @@ fieldset.scheduler-border {
     margin: auto;
     text-align: center;
     font-size: 14px;
+}
+.RED {
+  color: red;
+  font-weight: bold;
 }
 input {
   font-size: 14px;

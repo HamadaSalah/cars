@@ -95,20 +95,28 @@
                 </div>
               </div>
               <div class="tab-pane" id="step3">
-                <div class="list-group" id="CarModelss">
+                <div class="list-group " id="CarModelss">
                    <!-- Add more car model options as needed -->
                 </div>
               </div>
               <div class="tab-pane" id="step4">
+                <div class="list-group" id="CarModelsss">
+                   <!-- Add more car model options as needed -->
+                    
+                </div>
+              </div>
+              <div class="tab-pane" id="step5">
                 <h3> الاختيارات التي تمت</h3>
                 <ul>
                   <li>السنة: <input  id="selected-year" name="yearText"/> </li>
                   <li>النوع: <input   id="selected-make" name="carcatText"> </li>
                   <li>الموديل: <input  id="selected-model" name="carmodelText"></span></li>
+                  <li>الصنف: <input  id="selected-model-model" name="carmodelmodelText"></span></li>
                 </ul>
                 <input type="hidden" name="year" id="selected-year-1" value=""/>
                 <input type="hidden" name="carcat" id="selected-make-1" value="">
                 <input type="hidden" name="carmodel" id="selected-model-1" value="">
+                <input type="hidden" name="carmodelmodel" id="selected-model-model-1" value="">
                 <button type="submit" class="btn btn-primary">بحث</button>
               </div>
             </div>
@@ -141,7 +149,29 @@ $(".SelectCarName").on('click', function() {
     success: function(response) {
       console.log( response);
       $.each(response, function(index,res){
-                    $("#CarModelss").append( `<a href="#step4" class="list-group-item list-group-item-action" data-toggle="tab" id="Okay" data-modd="${res.id}"  data-modelss="${res.name}">${res.name}</a>`);
+                    $("#CarModelss").append( `<a href="#step4" class="list-group-item list-group-item-action SelectCarNameModel" data-toggle="tab" id="Okay" data-modd="${res.id}"  data-modelss="${res.name}">${res.name}</a>`);
+          });
+
+    },
+    error: function(xhr, status, error) {
+      console.error('Request failed:', status, error);
+    }
+  });
+});
+
+$('body').delegate('.SelectCarNameModel', 'click', function(e) {
+  // Get the value of the data-id attribute of the button
+  const id = $(this).data('modd');
+  // Send an AJAX request to the server
+  $.ajax({
+    url: '{{route('getModelsModels')}}',
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify({ id }),
+    success: function(response) {
+      console.log( response);
+      $.each(response, function(index,res){
+                    $("#CarModelsss").append( `<a href="#step5" class="list-group-item list-group-item-action" data-toggle="tab" id="Okay" data-moddd="${res.id}"  data-modelsss="${res.name}">${res.name}</a>`);
           });
 
     },
@@ -155,7 +185,7 @@ $(".SelectCarName").on('click', function() {
 $(document).ready(function() {
  
  
-  var carYear, carMake, carModel;
+  var carYear, carMake, carModel, carModelModel;
 
   $('body').delegate('.list-group-item', 'click', function(e) {
     e.preventDefault();
@@ -180,8 +210,15 @@ $(document).ready(function() {
       $('#selected-model').val(carModel);
       $('#selected-model-1').val(carModel1);
       console.log(carModel);
-
     }
+    if ($this.data('modelsss')) {
+      carModelModel = $this.data('modelsss');
+      carModelModel1 = $this.data('moddd');
+      $('#selected-model-model').val(carModelModel);
+      $('#selected-model-model-1').val(carModelModel1);
+      console.log(carModel);
+    }
+
     $this.tab('show');
   });
 

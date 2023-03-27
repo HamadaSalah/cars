@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('car_category_id');
             $table->unsignedBigInteger('car_model_id');
+            $table->unsignedBigInteger('car_model_model_id');
             $table->unsignedBigInteger('category_id');
             $table->string('name')->nullable();
             $table->string('count1')->nullable();
@@ -32,6 +33,7 @@ return new class extends Migration
 
             $table->foreign('car_category_id')->references('id')->on('car_categories')->onDelete('cascade');
             $table->foreign('car_model_id')->references('id')->on('car_models')->onDelete('cascade');
+            $table->foreign('car_model_model_id')->references('id')->on('car_model_models')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }

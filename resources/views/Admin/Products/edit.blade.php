@@ -96,6 +96,14 @@
       </select>
     </div>
     <div class="form-group">
+      <label for="role">صنف السيارة</label>
+      <select  class="form-control" required name="car_model_model_id" id="select3">
+        @foreach ($carModelss as $carmods)
+        <option value="{{$carmods->id}}"  <?php if($carmods->id == $item->car_model_id) { echo ' selected="selected"'; } ?> >{{$carmods->name}}</option>
+        @endforeach
+      </select>
+    </div>
+    <div class="form-group">
       <label for="role">نوع القطعه</label>
       <select class="form-control" id="role" required name="category_id">
         @foreach ($cats as $cat)
@@ -142,6 +150,28 @@
       }
     });
   });
+  $('#select2').on('change', function() {
+    var id = $(this).val();
+    // Make an AJAX r equest to fetch options for select2
+    $.ajax({
+      url: '{{route("getModelsModels")}}',
+      method: 'POST',
+      data: {id: id},
+      success: function(response) {
+        // Clear the existing options in select2
+        $('#select3').empty();
+
+        // Add new options based on the response
+        $.each(response, function(index, option) {
+          $('#select3').append('<option value="' + option.id + '">' + option.name + '</option>');
+        });
+      },
+      error: function() {
+        alert('Error occurred while fetching options for select3.');
+      }
+    });
+  });
+
 });
 
 </script>

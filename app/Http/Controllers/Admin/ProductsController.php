@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\CarCategory;
 use App\Models\CarModel;
+use App\Models\CarModelModel;
 use App\Models\Category;
 use App\Models\Item;
 use Illuminate\Http\Request;
@@ -52,6 +53,7 @@ class ProductsController extends Controller
             "source" => $request->source,
             "car_category_id" => $request->car_category_id,
             "car_model_id" => $request->car_model_id,
+            "car_model_model_id" => $request->car_model_model_id,
             "category_id" => $request->category_id,
             "oem" => $request->oem,
             "from_year" => $request->from_year,
@@ -83,8 +85,9 @@ class ProductsController extends Controller
         $item = Item::findOrFail($id);
         $carCats = CarCategory::all();
         $carModels = CarModel::where('car_category_id', $item->car_category_id)->get();
+        $carModelss = CarModelModel::where('car_model_id', $carModels[0]->id)->get();
         $cats = Category::all();
-        return view('Admin.Products.edit', compact('item', 'carCats', 'carModels', 'cats'));
+        return view('Admin.Products.edit', compact('item', 'carCats', 'carModels', 'carModelss', 'cats'));
     }
 
     /**
@@ -106,6 +109,7 @@ class ProductsController extends Controller
             "source" => $request->source,
             "car_category_id" => $request->car_category_id,
             "car_model_id" => $request->car_model_id,
+            "car_model_model_id" => $request->car_model_model_id,
             "category_id" => $request->category_id,
             "oem" => $request->oem,
             "from_year" => $request->from_year,

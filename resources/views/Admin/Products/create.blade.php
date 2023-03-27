@@ -96,10 +96,17 @@
     <div class="form-group">
       <label for="role">موديل السيارة</label>
       <select class="form-control" required name="car_model_id" id="select2">
+        <option value="" >أختار الموديل</option>
+
         {{-- @foreach ($carModels as $carmod)
         <option value="{{$carmod->id}}">{{$carmod->name}}</option>
             
         @endforeach --}}
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="role">صنف السيارة</label>
+      <select class="form-control" required name="car_model_model_id" id="select3">
       </select>
     </div>
     <div class="form-group">
@@ -128,7 +135,7 @@
 @push('custom-scripts')
 <script>
   $(document).ready(function() {
-  $('#select1').on('change', function() {
+    $('#select1').on('change', function() {
     var id = $(this).val();
     // Make an AJAX r equest to fetch options for select2
     $.ajax({
@@ -137,7 +144,7 @@
       data: {id: id},
       success: function(response) {
         // Clear the existing options in select2
-        $('#select2').empty();
+        // $('#select2').empty();
 
         // Add new options based on the response
         $.each(response, function(index, option) {
@@ -146,6 +153,27 @@
       },
       error: function() {
         alert('Error occurred while fetching options for select2.');
+      }
+    });
+  });
+  $('#select2').on('change', function() {
+    var id = $(this).val();
+    // Make an AJAX r equest to fetch options for select2
+    $.ajax({
+      url: '{{route("getModelsModels")}}',
+      method: 'POST',
+      data: {id: id},
+      success: function(response) {
+        // Clear the existing options in select2
+        $('#select3').empty();
+
+        // Add new options based on the response
+        $.each(response, function(index, option) {
+          $('#select3').append('<option value="' + option.id + '">' + option.name + '</option>');
+        });
+      },
+      error: function() {
+        alert('Error occurred while fetching options for select3.');
       }
     });
   });

@@ -42,8 +42,8 @@
               <td>{{$item->carCategory->name}}</td>
               <td>{{$item->carModel->name}}</td>
               <td>{{$item->source}}</td>
-              <td>{{$item->count1}}</td>
-              <td>{{$item->count2}}</td>
+              <td class="<?php if($item->count1 <= 10) echo 'RED'; ?>" >{{$item->count1}}</td>
+              <td class="<?php if($item->count1 <= 10) echo 'RED'; ?>" >{{$item->count2}}</td>
               <td>{{$item->price1}} دينار</td>
               <td>{{$item->price2}} دينار</td>
               <td>

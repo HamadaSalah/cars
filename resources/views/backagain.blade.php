@@ -56,7 +56,7 @@
                     <td>{{$pro->count}}</td>
                     <td>
                         <input type="hidden" name="product[]" value="{{$pro->id}}">
-                        <input type="number" class="max-number-input" value="{{$pro->count}}" maxlength="{{$pro->count}}" data-id="{{$pro->id}}" data-fat="{{$fatorah->id}}">
+                        <input type="number" class="max-number-input" min="0" value="{{$pro->count}}" maxlength="{{$pro->count}}" data-id="{{$pro->item_id}}" data-fat="{{$fatorah->id}}">
  
                         {{-- <input type="number" class="myInput" max="{{$pro->count}}"  pattern="\d*" name="reduce[]" 
                         oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" > --}}
