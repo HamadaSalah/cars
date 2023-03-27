@@ -58,10 +58,10 @@
                 <p  class="price1"> دينار    <span style="float: right;color:rgb(98, 0, 255);font-weight:bold;padding: 0 3px">{{$product->price1}} </span></p>
                 <p class="price2" style="display: none" > دينار <span style="float: right;color:rgb(98, 0, 255);font-weight:bold;padding: 0 3px" >{{$product->price2}} </span></p>
                 <p >  المصدر : {{$product->source}} </span></p>
-                <form action="{{route('addToCart', $product->id)}}" method="POST">
-                  @csrf
-                  <button class="btn btn-primary addingcart" type="submit">  اضافة للسلة</button></td>
-                </form>
+                {{-- <form action="{{route('addToCart', $product->id)}}" method="POST">
+                  @csrf --}}
+                  <button class="btn btn-primary addingcart" data-id="{{ $product->id }}" type="submit">  اضافة للسلة</button></td>
+                {{-- </form> --}}
   
               </div>
             </div> 
@@ -73,6 +73,9 @@
   </div>
 </section>
 <script>
+</script>
+@push('scripts')
+  <script>
   $(document).ready(function() {
   $('#my-select').on('change', function() {
     var selectedValue = $(this).val();
@@ -85,6 +88,27 @@
       $('.price1').css("display", "none");
   }
 });
+$('.addingcart').on('click', function() {
+  
+      var carId = $(this).data('id');
+      $.ajax({
+        url: '{{route("ApiAddToCart")}}',
+        type: 'POST',
+        data: { id: carId  },
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        success: function(response) {
+          console.log('AJAX request sent successfully');
+        },
+        error: function(error) {
+          console.log('Error sending AJAX request: ' + error);
+        }
+      });
+
+  });
+  
+  
 });
-</script>
+  </script>    
+@endpush
+
 @endsection

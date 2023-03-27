@@ -38,7 +38,7 @@
           <a class="nav-link" href="#">الزمم</a>
         </li> --}}
         <li class="nav-item">
-          <a class="nav-link" style="position: relative;padding-left: 20px" href="{{route('cart')}}"> <span style="position: absolute;
+          <a class="nav-link" style="position: relative;padding-left: 20px" href="{{route('cart')}}"> <span class="MycartCount" style="position: absolute;
             left: 1px;
             top: 1;
             background: red;

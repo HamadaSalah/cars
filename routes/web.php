@@ -3,6 +3,9 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Models\CarCategory;
+use App\Models\Cart;
+use App\Models\Item;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +39,15 @@ Route::middleware(['auth', 'web'])->group(function () {
     Route::get("zemam", [HomeController::class, 'zemam'])->name('zemam');
     Route::get("backk", [HomeController::class, 'backk'])->name('backk');
     Route::get("backagain", [HomeController::class, 'backagain'])->name('backagain');
+
+    Route::POST('ApiAddToCart', function (Request $request) {
+        // $item = Item::findOrFail($request->id);
+        // return $item;
+        Cart::create([
+            'user_id' => auth()->user()->id,
+            'item_id' => $request->id,
+        ]);
+    })->name("ApiAddToCart");
 });
 // Auth::routes();
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');

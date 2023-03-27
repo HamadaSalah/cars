@@ -47,10 +47,10 @@
               <td>{{$item->price1}} دينار</td>
               <td>{{$item->price2}} دينار</td>
               <td>
-                <form action="{{route('addToCart', $item->id)}}" method="POST">
-                @csrf
-                <button class="btn btn-primary addingcart" type="submit"> اضف الي السلة</button></td>
-              </form>
+                {{-- <form action="{{route('addToCart', $item->id)}}" method="POST">
+                @csrf --}}
+                <button class="btn btn-primary addingcart" data-id="{{ $item->id }}" type="submit">  اضافة للسلة</button></td>
+              {{-- </form> --}}
                 {{-- <a href="{{route('addToCart', $item->id)}}"></a> --}}
             </tr>                
             @endforeach
@@ -59,6 +59,26 @@
       {{$items->links('pagination::bootstrap-4')}}
     </div>
   </section>
+@push('scripts')
+  <script>
+    
+    $('.addingcart').on('click', function() {
+      var carId = $(this).data('id');
+      $.ajax({
+        url: '{{route("ApiAddToCart")}}',
+        type: 'POST',
+        data: { id: carId  },
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        success: function(response) {
+          console.log('AJAX request sent successfully');
+        },
+        error: function(error) {
+          console.log('Error sending AJAX request: ' + error);
+        }
+      });
 
-
+  });
+  
+  </script>    
+@endpush
 @endsection
