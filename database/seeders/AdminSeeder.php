@@ -40,5 +40,100 @@ class AdminSeeder extends Seeder
         Category::create([
             'name' => 'جنطات'
         ]);
+        CarModelModel::create([
+            'name' => 'Hybrid LE',
+            'car_model_id' => 1
+        ]);
+        CarModelModel::create([
+            'name' => 'Hybrid SE',
+            'car_model_id' => 1
+        ]);
+        CarModelModel::create([
+            'name' => 'Hybrid XLE',
+            'car_model_id' => 1
+        ]);
+        CarModelModel::create([
+            'name' => 'Gas LE',
+            'car_model_id' => 1
+        ]);
+        CarModelModel::create([
+            'name' => 'Gas SE',
+            'car_model_id' => 1
+        ]);
+        CarModelModel::create([
+            'name' => 'Gas XLE',
+            'car_model_id' => 1
+        ]);
+        CarModelModel::create([
+            'name' => 'Gas XSE',
+            'car_model_id' => 1
+        ]);
+
+        //corola
+
+        CarModelModel::create([
+            'name' => 'Hybrid LE',
+            'car_model_id' => 2
+        ]);
+        CarModelModel::create([
+            'name' => 'Hybrid XLE',
+            'car_model_id' => 2
+        ]);
+        CarModelModel::create([
+            'name' => 'GAS XLE',
+            'car_model_id' => 2
+        ]);
+        CarModelModel::create([
+            'name' => 'GAS XLE',
+            'car_model_id' => 2
+        ]);
+        CarModelModel::create([
+            'name' => 'خليجي',
+            'car_model_id' => 2
+        ]);
+
+        //hlinder
+        CarModelModel::create([
+            'name' => 'Hybrid LE',
+            'car_model_id' => 5
+        ]);
+        CarModelModel::create([
+            'name' => 'Hybrid SE',
+            'car_model_id' => 5
+        ]);
+        CarModelModel::create([
+            'name' => 'Hybrid XSE',
+            'car_model_id' => 5
+        ]);
+        CarModelModel::create([
+            'name' => 'Hybrid XLE',
+            'car_model_id' => 5
+        ]);
+        //Rafford
+        CarModelModel::create([
+            'name' => 'Hybrid',
+            'car_model_id' => 8
+        ]);
+        CarModelModel::create([
+            'name' => 'Electric',
+            'car_model_id' => 8
+        ]);
+        //Cona
+        CarModelModel::create([
+            'name' => 'Hybrid',
+            'car_model_id' => 10
+        ]);
+        CarModelModel::create([
+            'name' => 'Electric',
+            'car_model_id' => 10
+        ]);
+        CarModelModel::create([
+            'name' => 'Hybrid',
+            'car_model_id' => 20
+        ]);
+        CarModelModel::create([
+            'name' => 'Electric',
+            'car_model_id' => 20
+        ]);
     }
 }

@@ -15,11 +15,9 @@ return new class extends Migration
     {
         Schema::create('car_model_models', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('car_category_id');
             $table->unsignedBigInteger('car_model_id');
             $table->string('name');
 
-            $table->foreign('car_category_id')->references('id')->on('car_categories')->onDelete('cascade');
             $table->foreign('car_model_id')->references('id')->on('car_models')->onDelete('cascade');
 
             $table->timestamps();

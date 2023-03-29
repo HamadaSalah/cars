@@ -173,10 +173,14 @@ $('body').delegate('.SelectCarNameModel', 'click', function(e) {
       $.each(response, function(index,res){
                     $("#CarModelsss").append( `<a href="#step5" class="list-group-item list-group-item-action" data-toggle="tab" id="Okay" data-moddd="${res.id}"  data-modelsss="${res.name}">${res.name}</a>`);
           });
+          if(response.length == 0) {
+            $("#CarModelsss").append( `<a href="#step5" class="list-group-item list-group-item-action" data-toggle="tab" id="Okay" data-moddd=""  data-modelsss="">لا يوجد</a>`);
+
+          }
 
     },
     error: function(xhr, status, error) {
-      console.error('Request failed:', status, error);
+      $("#CarModelsss").append( `<a href="#step5" class="list-group-item list-group-item-action" data-toggle="tab" id="Okay" data-moddd=""  data-modelsss="">لا يوجد</a>`);
     }
   });
 });
