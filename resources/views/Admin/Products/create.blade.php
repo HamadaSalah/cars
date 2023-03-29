@@ -106,7 +106,7 @@
     </div>
     <div class="form-group">
       <label for="role">صنف السيارة</label>
-      <select class="form-control" required name="car_model_model_id" id="select3">
+      <select class="form-control"   name="car_model_model_id" id="select3">
       </select>
     </div>
     <div class="form-group">
