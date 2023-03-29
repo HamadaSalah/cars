@@ -42,7 +42,7 @@ fieldset.scheduler-border {
 }
 .RED {
   color: red;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 input {
   font-size: 14px;

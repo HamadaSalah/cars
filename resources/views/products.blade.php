@@ -55,9 +55,11 @@
               <img class="card-img-top" src="img/product.png" alt="Card image cap">
               <div class="card-body">
                 <p class="card-text">{{$product->name}}</p>
-                <p  class="price1"> دينار    <span style="float: right;color:rgb(98, 0, 255);font-weight:bold;padding: 0 3px">{{$product->price1}} </span></p>
+                <p  class="price1">   <span style="float: right;color:rgb(98, 0, 255);font-weight:bold;padding: 0 3px">{{$product->price1}}</span>   دينار   </p>
                 <p class="price2" style="display: none" > دينار <span style="float: right;color:rgb(98, 0, 255);font-weight:bold;padding: 0 3px" >{{$product->price2}} </span></p>
                 <p >  المصدر : {{$product->source}} </span></p>
+                <p  class="<?php if($product->count1 <= 10) echo 'RED'; ?>" > العدد مستودع : {{$product->count1}} </span></p>
+                <p  class="<?php if($product->count2 <= 10) echo 'RED'; ?>" >  العدد نقطة : {{$product->count2}} </span></p>
                 {{-- <form action="{{route('addToCart', $product->id)}}" method="POST">
                   @csrf --}}
                   <button class="btn btn-primary addingcart" data-id="{{ $product->id }}" type="submit">  اضافة للسلة</button></td>
