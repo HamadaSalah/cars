@@ -8,6 +8,8 @@
   <section class="selectcaa"> 
     <div class="container ">
       <form action="{{route('serachByName')}}" method="get">
+      <div class="row">
+          <div class="col-md-3">
             <legend class="scheduler-border">اسم القطعة</legend>
             <div class="control-group">
                 <div class="controls ">
@@ -18,8 +20,35 @@
                     <i class="icon-time"></i>
                 </div>
             </div>
-        <button class="btn btn-success sebtn" type="submit">بحث</button>
-      </form>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">اختر السيارة</label>
+              <select class="form-control" name="carcat" id="select1">
+                <option value="">اختار السيارة</option>
+                @foreach ($cars as $car)
+                <option value="{{$car->id}}">{{$car->name}}</option>
+                @endforeach
+              </select>
+            </div>
+          
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">اختر الموديل</label>
+              <select class="form-control" id="select2" name="carmodel">
+                <option value="">اختار الموديل</option>
+              </select>
+            </div>
+          
+          </div>
+          <div class="col-md-3">
+            <button class="btn btn-success  " style="margin-top: 30px;width: 100%" type="submit">بحث</button>
+
+          </div>
+        </form>
+
+      </div>
 
       <table class="table" dir="rtl">
         <thead class=" " style="background-color: #2948ab;color: #fff;">
@@ -61,7 +90,29 @@
   </section>
 @push('scripts')
   <script>
-    
+      $(document).ready(function() {
+          $('#select1').on('change', function() {
+          var id = $(this).val();
+          // Make an AJAX r equest to fetch options for select2
+          $.ajax({
+            url: '{{route("getModels")}}',
+            method: 'POST',
+            data: {id: id},
+            success: function(response) {
+              // Clear the existing options in select2
+              // $('#select2').empty();
+
+              // Add new options based on the response
+              $.each(response, function(index, option) {
+                $('#select2').append('<option value="' + option.id + '">' + option.name + '</option>');
+              });
+            },
+            error: function() {
+              alert('Error occurred while fetching options for select2.');
+            }
+          });
+        });
+      });
     $('.addingcart').on('click', function() {
       var carId = $(this).data('id');
       $.ajax({

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CarCategory;
 use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Fatorah;
@@ -17,14 +18,27 @@ class HomeController extends Controller
         // $request->validate([
         //     'name' => 'required'
         // ]);
+        // $querys = explode(' ', $request->name);
+        // foreach ($querys as $qa) {
+        //     $search = Item::join('car_models', 'items.car_model_id', '=', 'car_models.id')
+        //         ->where('car_models.name', 'LIKE', "%{$qa}%")
+        //         ->orWhere('items.name', 'LIKE', "%{$qa}%");
+        // }
+        // $search = Item::join('car_categories', 'items.car_category_id', '=', 'car_categories.id')
+        //     ->where('items.name', 'LIKE', "%{$request->name}%")
+        //     ->orWhere('car_categories.name', 'LIKE', "%{$request->name}%");
 
         $search = Item::where('name', 'LIKE', "%{$request->name}%");
-        if ($request->oem != null) {
-            $search->where('oem', $request->oem);
+        if ($request->carcat != null) {
+            $search->where('car_category_id', $request->carcat);
+        }
+        if ($request->carmodel != null) {
+            $search->where('car_model_id', $request->carmodel);
         }
         $items = $search->paginate(20);
         $items = $items->appends(request()->query());
-        return view('searchByName', compact('items'));
+        $cars = CarCategory::all();
+        return view('searchByName', compact('items', 'cars'));
     }
 
     public function gard(Request $request)
@@ -172,7 +186,7 @@ class HomeController extends Controller
     public function zemam(Request $request)
     {
         if ($request->name  != null) {
-            $zemam = Fatorah::where('name', 'LIKE', "%{$request->name}%")->where('rest', '!=', 0)->with('products')->get();
+            $zemam = Fatorah::with('products')->where('name', 'LIKE', "%{$request->name}%")->where('rest', '!=', 0)->with('products')->get();
         } else {
             $zemam = [];
         }
@@ -184,7 +198,7 @@ class HomeController extends Controller
     }
     public function backagain(Request $request)
     {
-        $fatorah = Fatorah::where('number', $request->name)->first();
+        $fatorah = Fatorah::with('products')->where('number', $request->name)->first();
         if (!$fatorah) {
             return abort(404);
         }

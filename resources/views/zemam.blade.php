@@ -17,7 +17,11 @@
                 <input type="text" class="form-control" value="{{ Request::get('name') }}" name="name" >
               </form>
               <div class="clearfix"></div>
+              <?php $totalpay = 0;?>
+              <?php $totalrest = 0;?>
+
             @if (count($zemam) > 0)
+            @foreach($zemam as $zema)
             <table class="table" dir="rtl">
                 <thead class=" " style="background-color: #2948ab;color: #fff;">
                     <tr>
@@ -25,13 +29,9 @@
                         <th scope="col">التاريخ</th>
                         <th scope="col">تم دفع</th>
                         <th scope="col">الباقي </th>
-                        <th scope="col">عرض الفاتورة</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $totalpay = 0;?>
-                    <?php $totalrest = 0;?>
-                    @foreach($zemam as $zema)
                         <?php $totalpay += $zema->pay; ?>
                         <?php $totalrest += $zema->rest; ?>
                         <tr>
@@ -39,9 +39,31 @@
                             <td>{{ $zema->created_at }} </td>
                             <td>{{ $zema->pay }} دينار</td>
                             <td>{{ $zema->rest }} دينار</td>
-                            <td><a href="{{Route('convertToShowGet', $zema->id)}}"><button class="btn btn-success">عرض</button></a></td>
                         </tr>
-                    @endforeach
+                        <table class="table" dir="rtl">
+                            <thead class=" " style="background-color: #2948ab;color: #fff;">
+                              <tr>
+                                <th scope="col">اسم القطعة</th>
+                                <th scope="col">سعر القطعة الواحدة</th>
+                                <th scope="col">الكمية</th>
+                                <th scope="col">المبلغ</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {{-- @dd($show->products) --}}
+                              @foreach ($zema->products as $pro)
+                                  <tr>
+                                      <td>{{$pro->item->name}}</td>
+                                      <td>{{$pro->item->price1}} دينار</td>
+                                      <td>{{$pro->count}}</td>
+                                      <td>{{$pro->item->price1*$pro->count}} دينار</td>
+                                  </tr>    
+                              @endforeach
+                             </tbody>
+                          </table>
+                          <br/>
+                          <div class="mb-3 mt-3" style="width: 100%;border: 1px dashed #000"></div>
+                     @endforeach
                 </tbody>
             </table>
             <div class="col-md-12">

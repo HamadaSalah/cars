@@ -59,19 +59,17 @@ Route::post('items', function (Request $request) {
 });
 
 Route::post('changeitemCount', function (Request $request) {
-    if ($request->count > 0) {
-        $request->validate([
-            'id' => 'required',
-            'count' => 'required',
-            'fid' => 'required'
-        ]);
-        $fatora = FatorahProduct::where('fatorah_id', $request->fid)->where('item_id', $request->id)->first();
-        $fatora->update([
-            'count' => $request->count
-        ]);
-        $item  = Item::findOrfail($request->id);
-        $item->update([
-            'count1' => $item->count1 + 1
-        ]);
-    }
+    $request->validate([
+        'id' => 'required',
+        'count' => 'required',
+        'fid' => 'required'
+    ]);
+    $fatora = FatorahProduct::findOrFail($request->id);
+    $fatora->update([
+        'count' => $request->count
+    ]);
+    $item  = Item::findOrfail($request->item);
+    $item->update([
+        'count1' => $item->count1 + 1
+    ]);
 })->name("changeitemCount");

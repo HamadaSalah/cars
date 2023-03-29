@@ -55,8 +55,7 @@
                     <td>{{$pro->item->name}}</td>
                     <td>{{$pro->count}}</td>
                     <td>
-                        <input type="hidden" name="product[]" value="{{$pro->id}}">
-                        <input type="number" class="max-number-input" min="0" value="{{$pro->count}}" maxlength="{{$pro->count}}" data-id="{{$pro->item_id}}" data-fat="{{$fatorah->id}}">
+                        <input type="number" class="max-number-input" min="0" value="{{$pro->count}}" maxlength="{{$pro->count}}" data-count="{{$pro->count}}" data-primary="{{$pro->id}}" data-item="{{$pro->item_id}}" data-fat="{{$fatorah->id}}">
  
                         {{-- <input type="number" class="myInput" max="{{$pro->count}}"  pattern="\d*" name="reduce[]" 
                         oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" > --}}
@@ -130,6 +129,24 @@
   </div>
   </section>
   <script>
+        $('.max-number-input').on('change', function() {
+      var fid = $(this).data('fat');
+      var count = $( this ).val();
+      var item = $(this).data('item');
+      var id = $(this).data('primary');
+      $.ajax({
+        url: '{{route("changeitemCount")}}',
+        type: 'POST',
+        data: { id: id, count: count, fid: fid, item : item },
+        success: function(response) {
+          console.log('AJAX request sent successfully');
+        },
+        error: function(error) {
+          console.log('Error sending AJAX request: ' + error);
+        }
+      });
+    });
+
     // Add click event listeners to the increase and decrease buttons
     // $('.increase-button').on('click', function() {
     //   var currentValue = parseInt($('#max-number-input').val());
@@ -146,29 +163,9 @@
     // });
     
     // Send an AJAX request when the input value is changed
-    $('.max-number-input').on('change', function() {
-      sendAjaxRequest();
-    });
     
     // Function to send the AJAX request
-    function sendAjaxRequest() {
-      var id = $('.max-number-input').data('id');
-      var fid = $('.max-number-input').data('fat');
-      var count = $('.max-number-input').val();
-      $.ajax({
-        url: '{{route("changeitemCount")}}',
-        type: 'POST',
-        data: { id: id, count: count, fid: fid },
-        success: function(response) {
-          console.log('AJAX request sent successfully');
-        },
-        error: function(error) {
-          console.log('Error sending AJAX request: ' + error);
-        }
-      });
-    }
-    
-    </script>
+     </script>
     
 <style>  .overlayy, .header{
     height: 50px!important;
@@ -177,43 +174,6 @@
 </style>
 @push('custom-scripts')
 <script>
-// Add click event listeners to the increase and decrease buttons
-$('.increase-button').on('click', function() {
-  var currentValue = parseInt($('#max-number-input').val());
-  $('.max-number-input').val(currentValue + 1);
-  sendAjaxRequest();
-});
-
-$('.decrease-button').on('click', function() {
-  var currentValue = parseInt($('.max-number-input').val());
-  if (currentValue > 1) {
-    $('.max-number-input').val(currentValue - 1);
-    sendAjaxRequest();
-  }
-});
-
-// Send an AJAX request when the input value is changed
-$('.max-number-input').on('change', function() {
-  sendAjaxRequest();
-});
-
-// Function to send the AJAX request
-function sendAjaxRequest() {
-  var id = $('.max-number-input').data('id');
-  var fid = $('.max-number-input').data('fat');
-  var count = $('.max-number-input').val();
-  $.ajax({
-    url: '{{route("changeitemCount")}}',
-    type: 'POST',
-    data: { id: id, count: count, fid: fid },
-    success: function(response) {
-      console.log('AJAX request sent successfully');
-    },
-    error: function(error) {
-      console.log('Error sending AJAX request: ' + error);
-    }
-  });
-}
 
 </script>
 @endpush
