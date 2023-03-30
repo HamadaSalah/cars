@@ -130,25 +130,30 @@
   </section>
   <script>
         $('.max-number-input').on('click', function() {
-          $()
-      var fid = $(this).data('fat');
-      var count = $( this ).val();
-      var item = $(this).data('item');
-      var id = $(this).data('primary');
-      count = count-1;
-      $( this ).val(count);
-      $(this).parent().parent().find(".MyCount").val(count);
-      $.ajax({
-        url: '{{route("changeitemCount")}}',
-        type: 'POST',
-        data: { id: id, count: count, fid: fid, item : item },
-        success: function(response) {
-          alert("تم الانقاص")
-        },
-        error: function(error) {
-          console.log('Error sending AJAX request: ' + error);
-        }
-      });
+           if($(this).parent().parent().find(".MyCount").val() > 0) {
+             var fid = $(this).data('fat'); 
+             var count = $( this ).val();
+             var item = $(this).data('item');
+             var id = $(this).data('primary');
+             count = count-1;
+             $( this ).val(count);
+             $(this).parent().parent().find(".MyCount").val(count);
+             $.ajax({
+               url: '{{route("changeitemCount")}}',
+               type: 'POST',
+               data: { id: id, count: count, fid: fid, item : item },
+               success: function(response) {
+                 alert("تم الانقاص")
+               },
+               error: function(error) {
+                 console.log('Error sending AJAX request: ' + error);
+               }
+             });
+           }
+           else {
+            alert("لا يمكن الانقاص")
+
+           }
     });
 
     // Add click event listeners to the increase and decrease buttons
